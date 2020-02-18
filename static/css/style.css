@@ -1,6 +1,6 @@
 :root {
-    --main-bg: #ffecd1;
-    --graphite: #545454;
+    --main-bg: #e0e0e0;
+    --graphite: #363636;
     --graphite-lite: #707070;
     --warm-yellow: #ff9b05;
     --calm-green: #a6d47f;
@@ -34,6 +34,7 @@ body {
     line-height: 60px;
     background-color: var(--graphite);
     color: var(--main-bg);
+    border-bottom: 1px solid var(--warm-yellow);
 }
 
 #header h1 {
@@ -53,7 +54,7 @@ body {
 
 #logo a {
     text-decoration: none;
-    color: var(--main-bg);
+    color: #fff;
 }
 
 #nav {
@@ -62,7 +63,6 @@ body {
     top: -15px;
     height: 60px;
     font-family: 'M PLUS 1p', sans-serif;
-    /* font-weight: 300; */
 }
 
 #nav ul li {
@@ -103,12 +103,17 @@ body {
     border: 1px solid var(--graphite-lite);
     margin-bottom: 16px;
     padding-left: 12px;
+    border-radius: 4px;
 }
 
 .menu-item a {
     text-decoration: none;
     color: var(--graphite);
     font-family: 'M PLUS 1p', sans-serif;
+}
+
+.menu-item h3 {
+    margin: 8px 0;
 }
 
 /* Media Queries */
