@@ -1,0 +1,151 @@
+:root {
+    --main-bg: #ffecd1;
+    --graphite: #545454;
+    --graphite-lite: #707070;
+    --warm-yellow: #ff9b05;
+    --calm-green: #a6d47f;
+    --deep-blue: #004152;
+    --magenta: #ff005a;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--graphite);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 94%;
+    max-width: 1100px;
+}
+
+#header {
+    /* z-index: 2;
+    position: fixed; */
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: var(--graphite);
+    color: var(--main-bg);
+}
+
+#header h1 {
+    top: 0px;
+    margin: 0px;
+    /* text-transform: uppercase; */
+    font-size: 1.2em;
+}
+
+#logo {
+    position: absolute;
+    left: 0;
+    height: 60px;
+    font-family: 'Syncopate', sans-serif;
+    letter-spacing: 0.5em;
+}
+
+#logo a {
+    text-decoration: none;
+    color: var(--main-bg);
+}
+
+#nav {
+    position: absolute;
+    right: 0;
+    top: -15px;
+    height: 60px;
+    font-family: 'M PLUS 1p', sans-serif;
+    /* font-weight: 300; */
+}
+
+#nav ul li {
+    float: left;
+    list-style: none;
+}
+
+#nav ul li a {
+    display: block;
+    color: var(--main-bg);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 0 5px;
+}
+
+.search-container {
+    margin: 12px 0;
+}
+
+#search {
+    padding-left: 3px;
+}
+
+#search:focus {
+    outline: var(--graphite-lite) auto 1px;
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.menu-item {
+    border: 1px solid var(--graphite-lite);
+    margin: 8px 0;
+    padding-left: 12px;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: var(--graphite);
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+/* Media Queries */
+@media (max-width: 599px) {
+    #header .container {
+        width: 100%;
+    }
+    
+    #header h1 {
+        padding-left: 3%;
+    }
+
+    #nav {
+        width: 100%;
+        top: 60px;
+    }
+
+    #nav:before {
+        content: '\2630';
+        display: block;
+        position: absolute;
+        right: 3%;
+        top: -50px;
+        line-height: 40px;
+        font-size: 1.4em;
+        cursor: pointer;
+    }
+
+    #nav ul {
+        background-color: var(--graphite);
+        width: 100%;
+        margin: 0;
+    }
+
+    #nav ul li {
+        float: none;
+    }
+
+    #nav ul li a {
+        padding: 10px 3%;
+        line-height: 20px;
+        border-top: 1px solid var(--graphite-lite);
+    }
+}
