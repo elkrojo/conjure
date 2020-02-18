@@ -27,6 +27,36 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route('/get_artists')
+def get_artists():
+    return render_template("artists.html")
+
+
+@app.route('/get_genres')
+def get_genres():
+    return render_template("genres.html")
+
+
+@app.route('/get_moods')
+def get_moods():
+    return render_template("moods.html")
+
+
+@app.route('/get_bpm')
+def get_bpm():
+    return render_template("bpm.html")
+
+
+@app.route('/get_year')
+def get_year():
+    return render_template("year.html")
+
+
+@app.route('/get_country')
+def get_country():
+    return render_template("country.html")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
