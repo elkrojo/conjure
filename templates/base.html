@@ -34,51 +34,53 @@
 		</div>
 	</header>
 
-	<div class="search-container">
-		<form>
-			<!-- <label for="search">Search: </label> -->
-			<input type="text" name="search" id="search" placeholder="Enter name of artist here...">
-			<input type="submit" value="Search">
+	<div class="container">
+		<div class="search-container">
+			<form>
+				<!-- <label for="search">Search: </label> -->
+				<input type="text" name="search" id="search" placeholder="Enter name of artist here...">
+				<input type="submit" value="Search">
         </form>
-	</div>
+		</div>
 
-	<div class="content-container">
-		<div class="left-container">
-			<div class="menu-container">
-				<div class="menu-item">
-					<a href="{{ url_for('get_artists') }}">
-						<h2>Artists</h2>
-					</a>
-				</div>
-				<div class="menu-item">
-					<a href="{{ url_for('get_genres') }}">
-						<h2>Genres</h2>
-					</a>
-				</div>
-				<div class="menu-item">
-					<a href="{{ url_for('get_moods') }}">
-						<h2>Moods</h2>
-					</a>
-				</div>
-				<div class="menu-item">
-					<a href="{{ url_for('get_bpm') }}">
-						<h2>BPM</h2>
-					</a>
-				</div>
-				<div class="menu-item">
-					<a href="{{ url_for('get_year') }}">
-						<h2>Year</h2>
-					</a>
-				</div>
-				<div class="menu-item">
-					<a href="{{ url_for('get_country') }}">
-						<h2>Country</h2>
-					</a>
+		<div class="content-container">
+			<div class="left-container">
+				<div class="menu-container">
+					<div class="menu-item">
+						<a href="{{ url_for('get_artists') }}">
+							<h2>Artists</h2>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('get_genres') }}">
+							<h2>Genres</h2>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('get_moods') }}">
+							<h2>Moods</h2>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('get_bpm') }}">
+							<h2>BPM</h2>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('get_year') }}">
+							<h2>Year</h2>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('get_country') }}">
+							<h2>Country</h2>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="right-container">
-			{% block content %} {% endblock %}
+			<div class="right-container">
+				{% block content %} {% endblock %}
+			</div>
 		</div>
 	</div>
 

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+
+<ul>
+	{% for track in tracks %}
+	<li>
+		{{ track.track_name.title() }}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

@@ -29,7 +29,13 @@ def contact():
 
 @app.route('/get_artists')
 def get_artists():
-    return render_template("artists.html")
+    return render_template("artists.html", artists=mongo.db.artists.find())
+
+
+@app.route('/artist_page/<artist_name>')
+def artist_page(artist_name):
+    return render_template("artist_page.html",
+                           tracks=mongo.db.tracks.find({ "artist": artist_name }))
 
 
 @app.route('/get_genres')
