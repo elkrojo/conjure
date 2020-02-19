@@ -54,11 +54,16 @@ body {
     height: 60px;
     font-family: 'Syncopate', sans-serif;
     letter-spacing: 0.5em;
+    text-shadow: -1px -1px 0 var(--graphite-dark), 1px -1px 0 var(--graphite-dark), -1px 1px 0 var(--graphite-dark), 1px 1px 0 var(--graphite-dark);
 }
 
 #logo a {
     text-decoration: none;
     color: #fff;
+}
+
+#j-color {
+    color: var(--warm-yellow);
 }
 
 #nav {
@@ -102,6 +107,10 @@ body {
 .content-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
+}
+
+.right-container {
+    margin: 0 16px;
 }
 
 .right-container h1 {

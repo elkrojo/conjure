@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+    <form action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist) }}" method="POST">
+        <div>
+            <input id="artist_name" name="artist_name" type="text" value="{{ track.artist.title() }}">
+			<label for="artist_name">Artist</label>
+        </div>
+        <div>
+            <input id="track_name" name="track_name" type="text" value="{{ track.track_name.title() }}">
+			<label for="track_name">Track</label>
+        </div>
+        <div>
+            <input id="album_name" name="album_name" type="text" value="{{ track.album_name.title() }}">
+			<label for="album_name">Album</label>
+        </div>
+        <div>
+            <input id="ep_name" name="ep_name" type="text" value="{{ track.ep_name.title() }}">
+			<label for="ep_name">EP</label>
+        </div>
+        <div>
+            <input id="genre_name" name="genre_name" type="text" value="{{ track.genre_name.title() }}">
+			<label for="genre_name">Genre</label>
+        </div>
+        <div>
+            <input id="genre_style" name="genre_style" type="text" value="{{ track.genre_style.title() }}">
+			<label for="genre_style">Style</label>
+        </div>
+        <div>
+            <input id="year" name="year" type="text" value="{{ track.year }}">
+			<label for="year">Year</label>
+        </div>
+        <div>
+            <input id="country" name="country" type="text" value="{{ track.country.title() }}">
+			<label for="country">Country</label>
+        </div>
+        <div>
+            <input id="bpm" name="bpm" type="text" value="{{ track.bpm }}">
+			<label for="bpm">BPM</label>
+        </div>
+        <div>
+            <input id="mood" name="mood" type="text" value="{{ track.mood.title() }}">
+			<label for="mood">Mood</label>
+        </div>
+        <button type="submit" name="action">Update
+        </button>
+
+    </form>
+{% endblock %}

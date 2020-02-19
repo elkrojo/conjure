@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId 
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
@@ -39,10 +39,39 @@ def artist_page(artist_name):
                            tracks=tracks.find({"artist": artist_name}))
 
 
-@app.route('/track_page/<track_id>')
-def track_page(track_id):
-    return render_template("track_page.html",
-                           )
+# @app.route('/track_page/<track_id>')
+# def track_page(track_id):
+#     tracks = mongo.db.tracks
+#     return render_template("track_page.html",
+#                            track=tracks.find_one({'_id': ObjectId(track_id)}))
+
+
+@app.route('/edit_track/<track_id>')
+def edit_track(track_id):
+    track = mongo.db.tracks.find_one({'_id': ObjectId(track_id)})
+    genres = mongo.db.genre.find()
+    return render_template("edit_track.html",
+                           track=track,
+                           genres=genres)
+
+
+@app.route('/update_track/<track_id>', methods=["POST"])
+def update_track(track_id, artist_name):
+    tracks = mongo.db.tracks
+    tracks.update({'_id': ObjectId(track_id)},
+                  {
+                    'artist': request.form.get('artist_name'),
+                    'track_name': request.form.get('track_name'),
+                    'album_name': request.form.get('album_name'),
+                    'ep_name': request.form.get('ep_name'),
+                    'genre_name': request.form.get('genre_name'),
+                    'genre_style': request.form.get('genre_style'),
+                    'year': request.form.get('year'),
+                    'country': request.form.get('country'),
+                    'bpm': request.form.get('bpm'),
+                    'mood': request.form.get('mood')})
+
+    return redirect(url_for('artist_page'))
 
 
 @app.route('/get_genres')
