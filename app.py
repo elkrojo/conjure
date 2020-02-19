@@ -34,8 +34,15 @@ def get_artists():
 
 @app.route('/artist_page/<artist_name>')
 def artist_page(artist_name):
+    tracks = mongo.db.tracks
     return render_template("artist_page.html",
-                           tracks=mongo.db.tracks.find({ "artist": artist_name }))
+                           tracks=tracks.find({"artist": artist_name}))
+
+
+@app.route('/track_page/<track_id>')
+def track_page(track_id):
+    return render_template("track_page.html",
+                           )
 
 
 @app.route('/get_genres')

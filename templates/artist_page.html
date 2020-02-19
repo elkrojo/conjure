@@ -3,7 +3,9 @@
 <ul>
 	{% for track in tracks %}
 	<li>
-		{{ track.track_name.title() }}
+		<a href="{{ url_for('track_page', track_id=track._id) }}">
+			{{ track.track_name.title() }}
+		</a>
 	</li>
 	{% endfor %}
 </ul>
