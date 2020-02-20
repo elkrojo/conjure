@@ -1,47 +1,47 @@
 {% extends 'base.html' %} {% block content %}
 
-    <form action="{{ url_for('insert_track, artist_name=track.artist') }}" method="POST">
+    <form action="{{ url_for('insert_track') }}" method="POST">
         <div>
-            <input id="artist_name" name="artist_name" type="text" value="{{ track.artist.title() }}">
+            <input id="artist_name" name="artist_name" type="text">
 			<label for="artist_name">Artist</label>
         </div>
         <div>
-            <input id="track_name" name="track_name" type="text" value="{{ track.track_name.title() }}">
+            <input id="track_name" name="track_name" type="text">
 			<label for="track_name">Track</label>
         </div>
         <div>
-            <input id="album/ep_name" name="album/ep_name" type="text" value="{{ track.album/ep_name.title() }}">
-			<label for="album/ep_name">Album/EP</label>
+            <input id="album_ep_name" name="album_ep_name" type="text">
+			<label for="album_ep_name">Album/EP</label>
         </div>
         <div>
-            <input id="genre_name" name="genre_name" type="text" value="{{ track.genre_name.title() }}">
+            <input id="genre_name" name="genre_name" type="text">
 			<label for="genre_name">Genre</label>
         </div>
         <div>
-            <input id="genre_style" name="genre_style" type="text" value="{{ track.genre_style.title() }}">
+            <input id="genre_style" name="genre_style" type="text">
 			<label for="genre_style">Style</label>
         </div>
         <div>
-            <input id="mood" name="mood" type="text" value="{{ track.mood.title() }}">
+            <input id="mood" name="mood" type="text">
 			<label for="mood">Mood</label>
         </div>
         <div>
-            <input id="year" name="year" type="text" value="{{ track.year }}">
+            <input id="year" name="year" type="text">
 			<label for="year">Year</label>
         </div>
         <div>
-            <input id="country" name="country" type="text" value="{{ track.country.title() }}">
+            <input id="country" name="country" type="text">
 			<label for="country">Country</label>
         </div>
         <div>
-            <input id="bpm" name="bpm" type="text" value="{{ track.bpm }}">
+            <input id="bpm" name="bpm" type="text">
 			<label for="bpm">BPM</label>
         </div>
         <div>
-            <input id="length" name="length" type="text" value="{{ track.length }}">
+            <input id="length" name="length" type="text">
 			<label for="length">Length</label>
         </div>
-        <button type="submit" name="action">Update
+        <button type="submit" name="action">Insert
         </button>
     </form>
 

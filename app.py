@@ -36,7 +36,7 @@ def get_artists():
 def artist_page(artist_name):
     tracks = mongo.db.tracks
     return render_template("artist_page.html",
-                           tracks=tracks.find({"artist": artist_name}))
+                           tracks=tracks.find({"artist_name": artist_name}))
 
 
 # @app.route('/track_page/<track_id>')
@@ -60,7 +60,7 @@ def update_track(track_id, artist_name):
     tracks = mongo.db.tracks
     tracks.update({'_id': ObjectId(track_id)},
                   {
-                    'artist': request.form.get('artist_name').lower(),
+                    'artist_name': request.form.get('artist_name').lower(),
                     'track_name': request.form.get('track_name').lower(),
                     'album_ep_name': request.form.get('album_ep_name').lower(),
                     'genre_name': request.form.get('genre_name').lower(),
@@ -75,11 +75,22 @@ def update_track(track_id, artist_name):
     return redirect(url_for('artist_page', artist_name=artist_name))
 
 
+@app.route('/add_track')
+def add_track():
+    return render_template("add_track.html")
+
+
 @app.route('/insert_track', methods=["POST"])
-def insert_track(artist_name):
+def insert_track():
+    artists = mongo.db.artists
+    unique_artists = artists.distinct("artist_name")
     tracks = mongo.db.tracks
-    track = tracks.insert_one(request.form.to_dict())
-    return redirect(url_for('artist_page', artist_name=artist_name))
+    _id = tracks.insert_one(request.form.to_dict())
+    track = tracks.find_one({'_id': ObjectId(_id.inserted_id)})
+    if track['artist_name'] not in unique_artists:
+        artists.insert_one({'artist_name': track['artist_name']})
+    return redirect(url_for('artist_page', artist_name=track['artist_name']))
+
 
 @app.route('/get_genres')
 def get_genres():
