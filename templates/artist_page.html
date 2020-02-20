@@ -3,10 +3,11 @@
 <ul>
 	{% for track in tracks %}
 	<li>
-		<div>
+		<div id="artist-track">
 			<strong>{{ track.track_name.title() }}</strong>
+            <a href="{{ url_for('edit_track', track_id=track._id, artist_name=track.artist) }}">Edit</a>
 		</div>
-        <a href="{{ url_for('edit_track', track_id=track._id, artist_name=track.artist) }}">Edit</a>
+        
 	</li>
 	{% endfor %}
 </ul>

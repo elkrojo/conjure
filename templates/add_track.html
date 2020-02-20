@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-    <form action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist) }}" method="POST">
+    <form action="{{ url_for('insert_track, artist_name=track.artist') }}" method="POST">
         <div>
             <input id="artist_name" name="artist_name" type="text" value="{{ track.artist.title() }}">
 			<label for="artist_name">Artist</label>
@@ -10,8 +10,8 @@
 			<label for="track_name">Track</label>
         </div>
         <div>
-            <input id="album_ep_name" name="album_ep_name" type="text" value="{{ track.album_ep_name.title() }}">
-			<label for="album_ep_name">Album/EP</label>
+            <input id="album/ep_name" name="album/ep_name" type="text" value="{{ track.album/ep_name.title() }}">
+			<label for="album/ep_name">Album/EP</label>
         </div>
         <div>
             <input id="genre_name" name="genre_name" type="text" value="{{ track.genre_name.title() }}">
@@ -43,6 +43,6 @@
         </div>
         <button type="submit" name="action">Update
         </button>
-
     </form>
+
 {% endblock %}

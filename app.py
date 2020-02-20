@@ -55,24 +55,31 @@ def edit_track(track_id):
                            genres=genres)
 
 
-@app.route('/update_track/<track_id>', methods=["POST"])
+@app.route('/update_track/<artist_name>/<track_id>', methods=["POST"])
 def update_track(track_id, artist_name):
     tracks = mongo.db.tracks
     tracks.update({'_id': ObjectId(track_id)},
                   {
-                    'artist': request.form.get('artist_name'),
-                    'track_name': request.form.get('track_name'),
-                    'album_name': request.form.get('album_name'),
-                    'ep_name': request.form.get('ep_name'),
-                    'genre_name': request.form.get('genre_name'),
-                    'genre_style': request.form.get('genre_style'),
+                    'artist': request.form.get('artist_name').lower(),
+                    'track_name': request.form.get('track_name').lower(),
+                    'album_ep_name': request.form.get('album_ep_name').lower(),
+                    'genre_name': request.form.get('genre_name').lower(),
+                    'genre_style': request.form.get('genre_style').lower(),
+                    'mood': request.form.get('mood').lower(),
                     'year': request.form.get('year'),
-                    'country': request.form.get('country'),
+                    'country': request.form.get('country').lower(),
                     'bpm': request.form.get('bpm'),
-                    'mood': request.form.get('mood')})
+                    'length': request.form.get('length')
+                    })
 
-    return redirect(url_for('artist_page'))
+    return redirect(url_for('artist_page', artist_name=artist_name))
 
+
+@app.route('/insert_track', methods=["POST"])
+def insert_track(artist_name):
+    tracks = mongo.db.tracks
+    track = tracks.insert_one(request.form.to_dict())
+    return redirect(url_for('artist_page', artist_name=artist_name))
 
 @app.route('/get_genres')
 def get_genres():
