@@ -4,7 +4,7 @@
 	{% for artist in artists %}
 
 	<li>
-		<a href="{{ url_for('artist_page', artist_name=artist.artist_name) }}">
+		<a href="{{ url_for('artist_page', artist_id=artist._id, artist_name=artist.artist_name) }}">
 			{{ artist.artist_name.title() }}
 		</a>
 	</li>

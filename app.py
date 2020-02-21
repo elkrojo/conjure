@@ -2,8 +2,10 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from helper_functions import lower_dict_attr
 if os.path.exists("env.py"):
     import env
+
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get('MONGODB_NAME')
@@ -32,11 +34,15 @@ def get_artists():
     return render_template("artists.html", artists=mongo.db.artists.find())
 
 
-@app.route('/artist_page/<artist_name>')
-def artist_page(artist_name):
+@app.route('/artist_page/<artist_id>/<artist_name>')
+def artist_page(artist_id, artist_name):
     tracks = mongo.db.tracks
+    artist = mongo.db.artists.find_one({'_id': ObjectId(artist_id)})
+    artist_image = artist["image_path"]
     return render_template("artist_page.html",
-                           tracks=tracks.find({"artist_name": artist_name}))
+                           tracks=tracks.find({"artist_name": artist_name}),
+                           artist_name=artist_name,
+                           artist_image=artist_image)
 
 
 # @app.route('/track_page/<track_id>')
@@ -75,6 +81,12 @@ def update_track(track_id, artist_name):
     return redirect(url_for('artist_page', artist_name=artist_name))
 
 
+@app.route('/delete_track/<artist_name>/<track_id>')
+def delete_track(track_id, artist_name):
+    mongo.db.tracks.remove({'_id': ObjectId(track_id)})
+    return redirect(url_for('artist_page', artist_name=artist_name))
+
+
 @app.route('/add_track')
 def add_track():
     return render_template("add_track.html")
@@ -85,8 +97,11 @@ def insert_track():
     artists = mongo.db.artists
     unique_artists = artists.distinct("artist_name")
     tracks = mongo.db.tracks
-    _id = tracks.insert_one(request.form.to_dict())
+    dict_form = request.form.to_dict()
+    dict_form_lower = lower_dict_attr(dict_form)
+    _id = tracks.insert_one(dict_form_lower)
     track = tracks.find_one({'_id': ObjectId(_id.inserted_id)})
+
     if track['artist_name'] not in unique_artists:
         artists.insert_one({'artist_name': track['artist_name']})
     return redirect(url_for('artist_page', artist_name=track['artist_name']))

@@ -1,14 +1,29 @@
 {% extends 'base.html' %} {% block content %}
 
-<ul>
-	{% for track in tracks %}
-	<li>
-		<div id="artist-track">
-			<strong>{{ track.track_name.title() }}</strong>
-            <a href="{{ url_for('edit_track', track_id=track._id, artist_name=track.artist_name) }}">Edit</a>
-		</div>
-        
-	</li>
-	{% endfor %}
-</ul>
-{% endblock %}
+<div class="artist-header">
+	<h1>{{ artist_name.title() }}</h1>
+	<div class="image-box">
+		<img id="profile-image" src="{{ artist_image }}">
+    </div>
+</div>
+
+	<div class="track-table">
+		<table>
+			<tr>
+				<th>Track</th>
+				<th></th>
+				<th></th>
+			</tr>
+			{% for track in tracks %}
+			<tr>
+				<td><strong>{{ track.track_name.title() }}</strong></td>
+				<td><a href="{{ url_for('edit_track', track_id=track._id, artist_name=track.artist_name) }}">Edit</a>
+				</td>
+				<td><a
+						href="{{ url_for('delete_track', track_id=track._id, artist_name=track.artist_name) }}">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	{% endblock %}
