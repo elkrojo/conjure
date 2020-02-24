@@ -10,12 +10,14 @@
 }
 
 body {
-    background: url(../images/background/hifi_01.jpeg);
+    /* background: url(../images/background/hifi_01.jpeg); */
+    /* background-color: var(--main-bg); */
     background-repeat: no-repeat;
     background-position: center center;
-    /* background-color: var(--main-bg); */
+    background-size: cover;
     color: var(--graphite);
     font-family: 'M PLUS 1p', sans-serif;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     border: 0;
@@ -30,10 +32,15 @@ body {
     max-width: 1100px;
 }
 
+ul li a {
+    text-decoration: none;
+    color: var(--graphite);
+}
+
 /* Header */
 #header {
     width: 100%;
-    height: 60px;
+    height: 80px;
     line-height: 60px;
     background-color: var(--graphite);
     color: var(--main-bg);
@@ -42,7 +49,8 @@ body {
 
 #header h1 {
     top: 0px;
-    margin: 0px;
+    margin: 0;
+    padding-top: 12px;
     /* text-transform: uppercase; */
     font-size: 3.5em;
 }
@@ -110,6 +118,9 @@ body {
 }
 
 /* Left container */
+.menu-container {
+    margin-top: 16px;
+}
 .menu-item {
     background-color: var(--main-bg);
     border: 1px solid var(--graphite-lite);
@@ -141,12 +152,12 @@ body {
 
 /* Right Container */
 .right-container {
-    margin: 0 16px 0 32px;
+    margin: 16px 16px 0 32px;
 }
 
-.right-container h1 {
+/* .right-container h1 {
     text-align: center;
-}
+} */
 
 .right-container ul {
     list-style: none;
@@ -159,17 +170,15 @@ body {
 
 .artist-header h1 {
     text-align: left;
-    margin-top: 0;
+    vertical-align: top;
+    margin: 0;
+    font-size: 3em;
 }
 
-.image-box {
-    height: 100px;
-    overflow: hidden;
-}
-
-.image-box img {
-    max-width: 100%;
-    height: auto;
+#profile-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
 }
 
 /* .artist-header img {
@@ -189,7 +198,7 @@ body {
 }
 
 .track-table tr {
-    margin-bottom: 4px;
+    padding: 4px 0;
 }
 
 .track-table a {
