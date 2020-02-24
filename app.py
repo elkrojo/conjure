@@ -99,12 +99,17 @@ def insert_track():
     tracks = mongo.db.tracks
     dict_form = request.form.to_dict()
     dict_form_lower = lower_dict_attr(dict_form)
-    _id = tracks.insert_one(dict_form_lower)
-    track = tracks.find_one({'_id': ObjectId(_id.inserted_id)})
+    _trkid = tracks.insert_one(dict_form_lower)
+    track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
 
+    artist_id = ""
     if track['artist_name'] not in unique_artists:
-        artists.insert_one({'artist_name': track['artist_name']})
-    return redirect(url_for('artist_page', artist_name=track['artist_name']))
+        _artid = artists.insert_one({'artist_name': track['artist_name']})
+        artist_id = _artid.inserted_id
+
+    print(artist_id)
+    return redirect(url_for('artist_page', artist_id=artist_id,
+                            artist_name=track['artist_name']))
 
 
 @app.route('/get_genres')

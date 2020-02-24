@@ -14,8 +14,9 @@
 			<label for="album_ep_name">Album/EP</label>
         </div>
         <div>
-            <input id="genre_name" name="genre_name" type="text" value="{{ track.genre_name.title() }}">
-			<label for="genre_name">Genre</label>
+            <select id="edit_genre_name" name="genre_name" value="{{ track.genre_name.title() }}">
+            </select>
+			<label for="edit_genre_name">Genre</label>
         </div>
         <div>
             <input id="genre_style" name="genre_style" type="text" value="{{ track.genre_style.title() }}">
