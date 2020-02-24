@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from helper_functions import lower_dict_attr
+from py_functions import lower_dict_attr
 if os.path.exists("env.py"):
     import env
 
