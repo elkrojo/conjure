@@ -152,7 +152,7 @@ ul li a {
 
 /* Right Container */
 .right-container {
-    margin: 16px 16px 0 32px;
+    margin: 0 16px 0 32px;
 }
 
 /* .right-container h1 {
@@ -161,6 +161,10 @@ ul li a {
 
 .right-container ul {
     list-style: none;
+}
+
+.right-container form {
+    margin-top: 18px;
 }
 
 /* Track table */
