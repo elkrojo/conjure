@@ -14,7 +14,7 @@
 			<label for="album_ep_name">Album/EP</label>
         </div>
         <div>
-            <select id="edit_genre_name" name="genre_name" value="{{ track.genre_name.title() }}">
+            <select id="edit_genre_name" name="genre_name" value="{{ track.genre_name }}">
                 <option value="">-- select one --</option>
                 <option value="rock">Rock</option>
                 <option value="electronic">Electronic</option>
@@ -32,8 +32,10 @@
 			<label for="edit_genre_name">Genre</label>
         </div>
         <div>
-            <input id="genre_style" name="genre_style" type="text" value="{{ track.genre_style.title() }}">
-			<label for="genre_style">Style</label>
+            <select id="edit_genre_style" name="genre_style" value="{{ track.genre_style }}">
+                <option value="">-- select above first --</option>
+            </select>
+			<label for="edit_genre_style">Style</label>
         </div>
         <div>
             <input id="mood" name="mood" type="text" value="{{ track.mood.title() }}">

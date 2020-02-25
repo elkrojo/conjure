@@ -1,5 +1,15 @@
 {% extends 'base.html' %} {% block content %}
     
-    <h1>GENRES</h1>
+    <ul>
+	{% for genre in genres %}
+
+	<li>
+		<a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
+			{{ genre.genre_name.title().replace("_", " ") }}
+		</a>
+	</li>
+
+	{% endfor %}
+</ul>
 
 {% endblock %}

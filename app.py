@@ -42,19 +42,12 @@ def artist_page(artist_id, artist_name):
     if "image_path" in artist.keys():
         artist_image = artist["image_path"]
     else:
-        artist_image = "https://via.placeholder.com/728x90.png?text=Placeholder+Image"
+        artist_image = "https://via.placeholder.com/720x348.png?text=Placeholder+Image"
 
     return render_template("artist_page.html",
                            tracks=tracks.find({"artist_name": artist_name}),
                            artist_name=artist_name,
                            artist_image=artist_image)
-
-
-# @app.route('/track_page/<track_id>')
-# def track_page(track_id):
-#     tracks = mongo.db.tracks
-#     return render_template("track_page.html",
-#                            track=tracks.find_one({'_id': ObjectId(track_id)}))
 
 
 @app.route('/edit_track/<track_id>')
@@ -131,7 +124,16 @@ def insert_track():
 
 @app.route('/get_genres')
 def get_genres():
-    return render_template("genres.html")
+    genres = mongo.db.genre.find()
+    return render_template("genres.html", genres=genres)
+
+
+@app.route('/genre_page/<genre_id>/<genre_name>')
+def genre_page(genre_id, genre_name):
+    genre = mongo.db.genre.find_one({"_id": ObjectId(genre_id)})
+    styles = genre["genre_style"]
+    print(styles)
+    return render_template("genre_page.html", genre_name=genre_name.replace("_", " "), styles=styles)
 
 
 @app.route('/get_moods')
