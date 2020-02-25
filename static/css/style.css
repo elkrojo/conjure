@@ -10,8 +10,6 @@
 }
 
 body {
-    /* background: url(../images/background/hifi_01.jpeg); */
-    /* background-color: var(--main-bg); */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -159,8 +157,16 @@ ul li a {
     text-align: center;
 } */
 
+.right-container h1 {
+    margin: 18px 0 22px 0;
+    line-height: 80%;
+    font-size: 3.9em;
+    font-weight: 400;
+}
+
 .right-container ul {
     list-style: none;
+    padding: 0;
 }
 
 .right-container form {
@@ -175,14 +181,17 @@ ul li a {
 .artist-header h1 {
     text-align: left;
     vertical-align: top;
-    margin: 0;
-    font-size: 3em;
+    margin: 18px 0 22px 0;
+    font-size: 3.9em;
+    font-weight: 400;
+    line-height: 80%;
 }
 
 #profile-image {
     width: 100%;
-    height: 160px;
+    height: 190px;
     object-fit: cover;
+    margin-bottom: 4px;
 }
 
 /* .artist-header img {
@@ -191,6 +200,10 @@ ul li a {
     height: auto;
     overflow: hidden;
 } */
+
+.track-table {
+    font-size: 1.2em;
+}
 
 .track-table table {
     width: 100%;
