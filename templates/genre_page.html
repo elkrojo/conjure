@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+
+    <h1>{{ genre_name.title() }}</h1>
+
+    {% for style in styles %}
+        <li>
+            {{ style }}
+	    </li>
+    {% endfor %}
+
+{% endblock %}
