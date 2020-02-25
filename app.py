@@ -117,7 +117,6 @@ def insert_track():
 
     artist_id = _artid
 
-    print(artist_id)
     return redirect(url_for('artist_page', artist_id=artist_id,
                             artist_name=track['artist_name']))
 
