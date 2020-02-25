@@ -38,7 +38,12 @@ def get_artists():
 def artist_page(artist_id, artist_name):
     tracks = mongo.db.tracks
     artist = mongo.db.artists.find_one({'_id': ObjectId(artist_id)})
-    artist_image = artist["image_path"]
+
+    if "image_path" in artist.keys():
+        artist_image = artist["image_path"]
+    else:
+        artist_image = "https://via.placeholder.com/728x90.png?text=Placeholder+Image"
+
     return render_template("artist_page.html",
                            tracks=tracks.find({"artist_name": artist_name}),
                            artist_name=artist_name,
@@ -64,6 +69,9 @@ def edit_track(track_id):
 @app.route('/update_track/<artist_name>/<track_id>', methods=["POST"])
 def update_track(track_id, artist_name):
     tracks = mongo.db.tracks
+    track = tracks.find_one({'_id': ObjectId(track_id)})
+    artist = mongo.db.artists.find_one({"artist_name": track["artist_name"]})
+    artist_id = artist["_id"]
     tracks.update({'_id': ObjectId(track_id)},
                   {
                     'artist_name': request.form.get('artist_name').lower(),
@@ -78,13 +86,17 @@ def update_track(track_id, artist_name):
                     'length': request.form.get('length')
                     })
 
-    return redirect(url_for('artist_page', artist_name=artist_name))
+    return redirect(url_for('artist_page', artist_id=artist_id, artist_name=artist_name))
 
 
 @app.route('/delete_track/<artist_name>/<track_id>')
 def delete_track(track_id, artist_name):
+    tracks = mongo.db.tracks
+    track = tracks.find_one({'_id': ObjectId(track_id)})
+    artist = mongo.db.artists.find_one({"artist_name": track["artist_name"]})
+    artist_id = artist["_id"]
     mongo.db.tracks.remove({'_id': ObjectId(track_id)})
-    return redirect(url_for('artist_page', artist_name=artist_name))
+    return redirect(url_for('artist_page', artist_id=artist_id, artist_name=artist_name))
 
 
 @app.route('/add_track')
@@ -102,10 +114,15 @@ def insert_track():
     _trkid = tracks.insert_one(dict_form_lower)
     track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
 
-    artist_id = ""
+    _artid = None
     if track['artist_name'] not in unique_artists:
         _artid = artists.insert_one({'artist_name': track['artist_name']})
-        artist_id = _artid.inserted_id
+        _artid = _artid.inserted_id
+    else:
+        _artid = artists.find_one({'artist_name': track['artist_name']})
+        _artid = _artid["_id"]
+
+    artist_id = _artid
 
     print(artist_id)
     return redirect(url_for('artist_page', artist_id=artist_id,
