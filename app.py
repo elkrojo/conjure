@@ -31,12 +31,13 @@ def contact():
 
 @app.route('/get_artists')
 def get_artists():
-    return render_template("artists.html", artists=mongo.db.artists.find())
+    artists = mongo.db.artists.find().sort("artist_name", 1)
+    return render_template("artists.html", artists=artists)
 
 
 @app.route('/artist_page/<artist_id>/<artist_name>')
 def artist_page(artist_id, artist_name):
-    tracks = mongo.db.tracks
+    tracks = mongo.db.tracks.find({"artist_name": artist_name}).sort("track_name", 1)
     artist = mongo.db.artists.find_one({'_id': ObjectId(artist_id)})
 
     if "image_path" in artist.keys():
@@ -45,7 +46,7 @@ def artist_page(artist_id, artist_name):
         artist_image = "https://via.placeholder.com/720x348.png?text=Placeholder+Image"
 
     return render_template("artist_page.html",
-                           tracks=tracks.find({"artist_name": artist_name}),
+                           tracks=tracks,
                            artist_name=artist_name,
                            artist_image=artist_image)
 
@@ -123,7 +124,7 @@ def insert_track():
 
 @app.route('/get_genres')
 def get_genres():
-    genres = mongo.db.genre.find()
+    genres = mongo.db.genre.find().sort("genre_name", 1)
     return render_template("genres.html", genres=genres)
 
 
