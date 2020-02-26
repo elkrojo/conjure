@@ -2,43 +2,34 @@
 
     <form action="{{ url_for('insert_track') }}" method="POST">
         <div>
-            <input id="artist_name" name="artist_name" type="text">
+            <input id="artist_name" name="artist_name" type="text" required>
 			<label for="artist_name">Artist</label>
         </div>
         <div>
-            <input id="track_name" name="track_name" type="text">
+            <input id="track_name" name="track_name" type="text" required>
 			<label for="track_name">Track</label>
         </div>
         <div>
-            <input id="album_ep_name" name="album_ep_name" type="text">
+            <input id="album_ep_name" name="album_ep_name" type="text" required>
 			<label for="album_ep_name">Album/EP</label>
         </div>
         <div>
-            <select id="add_genre_name" name="genre_name">
-                <option value="">-- select one --</option>
-                <option value="rock">Rock</option>
-                <option value="electronic">Electronic</option>
-                <option value="pop">Pop</option>
-                <option value="funk_soul">Funk / Soul</option>
-                <option value="jazz">Jazz</option>
-                <option value="blues">Blues</option>
-                <option value="reggae">Reggae</option>
-                <option value="folk_world_country">Folk, World & Country</option>
-                <option value="hip_hop">Hip Hop</option>
-                <option value="classical">Classical</option>
-                <option value="stage_screen">Stage & Screen</option>
-                <option value="latin">Latin</option>
+            <select id="add_genre_name" name="genre_name" required>
+                    <option value="">-- select one --</option>
+                {% for genre in genres %}
+                    <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
+                {% endfor %}
             </select>
 			<label for="add_genre_name">Genre</label>
         </div>
         <div>
-            <select id="add_genre_style" name="genre_style">
+            <select id="add_genre_style" name="genre_style" required>
                 <option value="">-- select above first --</option>
             </select>
 			<label for="add_genre_style">Style</label>
         </div>
         <div>
-            <select id="mood" name="mood">
+            <select id="mood" name="mood" required>
                 <option value="">-- select one --</option>
                 <option value="happy">Happy</option>
                 <option value="exuberant">Exuberant</option>
@@ -52,19 +43,19 @@
 			<label for="mood">Mood</label>
         </div>
         <div>
-            <select id="add_year" name="year">
+            <select id="add_year" name="year" required>
                 <option value="">-- select one --</option>
             </select>
 			<label for="add_year">Year</label>
         </div>
         <div>
-            <select id="add_country" name="country">
+            <select id="add_country" name="country" required>
             <option value="">-- select one --</option>
             </select>
 			<label for="add_country">Country</label>
         </div>
         <div>
-            <select id="add_bpm" name="bpm">
+            <select id="add_bpm" name="bpm" required>
             <option value="0">None</option>
             </select>
 			<label for="add_bpm">BPM</label>
