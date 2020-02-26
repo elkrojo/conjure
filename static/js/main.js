@@ -434,4 +434,8 @@ $(document).ready(function() {
     for (let c in countryListAlpha2) {
         $('#add_country').append($('<option />').val(c).html(countryListAlpha2[c]));
     }
+
+    for (let b=50; b<=200; b+=5) {
+        $('#add_bpm').append($('<option />').val(b).html(b));
+    }
 })
