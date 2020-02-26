@@ -26,7 +26,7 @@
 			<label for="edit_genre_name">Genre</label>
         </div>
         <div>
-            <select id="edit_genre_style" name="genre_style" value="{{ track.genre_style }}">
+            <select id="edit_genre_style" name="genre_style">
                 <option value="">-- select above first --</option>
             </select>
 			<label for="edit_genre_style">Style</label>
@@ -55,7 +55,7 @@
         </div>
         <div>
             <input id="bpm" name="bpm" type="text" value="{{ track.bpm }}">
-			<label for="bpm">BPM</label>
+			<label for="bpm">BPM (nearest value)</label>
         </div>
         <div>
             <input id="length" name="length" type="text" value="{{ track.length }}">
