@@ -56,8 +56,16 @@
 			<label for="edit_year">Year</label>
         </div>
         <div>
-            <input id="country" name="country" type="text" value="{{ track.country.title() }}">
-			<label for="country">Country</label>
+            <select id="edit_country" name="country">
+                {% for country in countries %}
+                    {% if track.country == country.country %}
+                        <option value="{{track.country}}" selected>{{track.country.title()}}</option>
+                    {% else %}
+                        <option value="{{country.country}}">{{country.country.title()}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+			<label for="edit_country">Country</label>
         </div>
         <div>
             <input id="bpm" name="bpm" type="text" value="{{ track.bpm }}">

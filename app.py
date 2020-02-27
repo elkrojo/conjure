@@ -56,10 +56,12 @@ def edit_track(track_id):
     track = mongo.db.tracks.find_one({'_id': ObjectId(track_id)})
     genres = mongo.db.genre.find()
     moods = mongo.db.moods.find()
+    countries = mongo.db.countries.find()
     return render_template("edit_track.html",
                            track=track,
                            genres=genres,
-                           moods=moods)
+                           moods=moods,
+                           countries=countries)
 
 
 @app.route('/update_track/<artist_name>/<track_id>', methods=["POST"])
@@ -77,7 +79,7 @@ def update_track(track_id, artist_name):
                     'genre_style': request.form.get('genre_style').lower(),
                     'mood': request.form.get('mood').lower(),
                     'year': request.form.get('year'),
-                    'country': request.form.get('country').lower(),
+                    'country': request.form.get('country'),
                     'bpm': request.form.get('bpm'),
                     'length': request.form.get('length')
                     })
