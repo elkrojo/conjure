@@ -15,7 +15,7 @@
         </div>
         <div>
             <select id="add_genre_name" name="genre_name" required>
-                    <option value="">-- select one --</option>
+                <option value="">-- select one --</option>
                 {% for genre in genres %}
                     <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
                 {% endfor %}
@@ -29,8 +29,12 @@
 			<label for="add_genre_style">Style</label>
         </div>
         <div>
-            <select id="mood" name="mood" required>
+            <select id="add_mood" name="mood" required>
                 <option value="">-- select one --</option>
+                {% for mood in moods %}
+                        <option value="{{mood.mood}}">{{mood.mood}}</option>
+                {% endfor %}
+                <!-- <option value="">-- select one --</option>
                 <option value="happy">Happy</option>
                 <option value="exuberant">Exuberant</option>
                 <option value="energetic">Energetic</option>
@@ -38,9 +42,9 @@
                 <option value="anxious_sad">Anxious/Sad</option>
                 <option value="depression">Depression</option>
                 <option value="calm">Calm</option>
-                <option value="contentment">Contentment</option>
+                <option value="contentment">Contentment</option> -->
             </select>
-			<label for="mood">Mood</label>
+			<label for="add_mood">Mood</label>
         </div>
         <div>
             <select id="add_year" name="year" required>
