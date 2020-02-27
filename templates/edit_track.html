@@ -69,6 +69,7 @@
         </div>
         <div>
             <select id="edit_bpm" name="bpm" required>
+                <option value="0">None</option>
                 {% for b in range(50, 201, 5) %}
                     {% if track.bpm == b %}
                         <option value="{{track.bpm}}" selected>{{track.bpm}}</option>
