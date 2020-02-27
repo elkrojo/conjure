@@ -41,7 +41,7 @@ ul li a {
 
 ul li a:hover {
     color: var(--graphite-dark);
-    font-weight: 700;
+    font-weight: 500;
     transition: ease-in-out 0.2s;
 }
 
@@ -104,6 +104,7 @@ ul li a:hover {
 
 #nav ul li a:hover {
     color: #fff;
+    font-weight: 400;
     transition: ease-in-out 0.2s;
 }
 
