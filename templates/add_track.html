@@ -17,7 +17,7 @@
             <select id="add_genre_name" name="genre_name" required>
                 <option value="">-- select one --</option>
                 {% for genre in genres %}
-                    <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
+                    <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
                 {% endfor %}
             </select>
 			<label for="add_genre_name">Genre</label>
@@ -32,7 +32,7 @@
             <select id="add_mood" name="mood" required>
                 <option value="">-- select one --</option>
                 {% for mood in moods %}
-                        <option value="{{mood.mood}}">{{mood.mood}}</option>
+                        <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
                 {% endfor %}
             </select>
 			<label for="add_mood">Mood</label>

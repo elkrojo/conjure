@@ -17,9 +17,9 @@
             <select id="edit_genre_name" name="genre_name" required>
                 {% for genre in genres %}
                     {% if genre.genre_name == track.genre_name %}
-                        <option value="{{track.genre_name}}" selected>{{track.genre_name}}</option>
+                        <option value="{{track.genre_name}}" selected>{{track.genre_name.title()}}</option>
                     {% else %}
-                        <option value="{{genre.genre_name}}">{{genre.genre_name}}</option>
+                        <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
                     {% endif %}
                 {% endfor %}
             </select>
@@ -35,9 +35,9 @@
              <select id="edit_mood" name="mood" required>
                 {% for mood in moods %}
                     {% if mood.mood == track.mood %}
-                        <option value="{{track.mood}}" selected>{{track.mood}}</option>
+                        <option value="{{track.mood}}" selected>{{track.mood.title()}}</option>
                     {% else %}
-                        <option value="{{mood.mood}}">{{mood.mood}}</option>
+                        <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
                     {% endif %}
                 {% endfor %}
             </select>
