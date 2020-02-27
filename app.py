@@ -99,7 +99,8 @@ def delete_track(track_id, artist_name):
 def add_track():
     genres = mongo.db.genre.find()
     moods = mongo.db.moods.find()
-    return render_template("add_track.html", genres=genres, moods=moods)
+    countries = mongo.db.countries.find()
+    return render_template("add_track.html", genres=genres, moods=moods, countries=countries)
 
 
 @app.route('/insert_track', methods=["POST"])

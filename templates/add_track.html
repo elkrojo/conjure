@@ -49,6 +49,9 @@
         <div>
             <select id="add_country" name="country" required>
             <option value="">-- select one --</option>
+            {% for country in countries %}
+                <option value="{{country.key}}">{{country.value}}</option>
+            {% endfor %}
             </select>
 			<label for="add_country">Country</label>
         </div>
