@@ -2,19 +2,19 @@
 
     <form action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist_name) }}" method="POST">
         <div>
-            <input id="artist_name" name="artist_name" type="text" value="{{ track.artist_name.title() }}">
+            <input id="artist_name" name="artist_name" type="text" value="{{ track.artist_name.title() }}" required>
 			<label for="artist_name">Artist</label>
         </div>
         <div>
-            <input id="track_name" name="track_name" type="text" value="{{ track.track_name.title() }}">
+            <input id="track_name" name="track_name" type="text" value="{{ track.track_name.title() }}" required>
 			<label for="track_name">Track</label>
         </div>
         <div>
-            <input id="album_ep_name" name="album_ep_name" type="text" value="{{ track.album_ep_name.title() }}">
+            <input id="album_ep_name" name="album_ep_name" type="text" value="{{ track.album_ep_name.title() }}" required>
 			<label for="album_ep_name">Album/EP</label>
         </div>
         <div>
-            <select id="edit_genre_name" name="genre_name">
+            <select id="edit_genre_name" name="genre_name" required>
                 {% for genre in genres %}
                     {% if genre.genre_name == track.genre_name %}
                         <option value="{{track.genre_name}}" selected>{{track.genre_name}}</option>
@@ -26,13 +26,13 @@
 			<label for="edit_genre_name">Genre</label>
         </div>
         <div>
-            <select id="edit_genre_style" name="genre_style">
+            <select id="edit_genre_style" name="genre_style" required>
                 <option value="">-- select above first --</option>
             </select>
 			<label for="edit_genre_style">Style</label>
         </div>
         <div>
-             <select id="edit_mood" name="mood" value="{ track.mood }">
+             <select id="edit_mood" name="mood" required>
                 {% for mood in moods %}
                     {% if mood.mood == track.mood %}
                         <option value="{{track.mood}}" selected>{{track.mood}}</option>
@@ -44,7 +44,7 @@
 			<label for="edit_mood">Mood</label>
         </div>
         <div>
-            <select id="edit_year" name="year">
+            <select id="edit_year" name="year" required>
                 {% for y in range(2020, 1899, -1) %}
                     {% if track.year == y %}
                         <option value="{{track.year}}" selected>{{track.year}}</option>
@@ -56,7 +56,7 @@
 			<label for="edit_year">Year</label>
         </div>
         <div>
-            <select id="edit_country" name="country">
+            <select id="edit_country" name="country" required>
                 {% for country in countries %}
                     {% if track.country == country.country %}
                         <option value="{{track.country}}" selected>{{track.country.title()}}</option>
@@ -68,7 +68,7 @@
 			<label for="edit_country">Country</label>
         </div>
         <div>
-            <select id="edit_bpm" name="bpm">
+            <select id="edit_bpm" name="bpm" required>
                 {% for b in range(50, 201, 5) %}
                     {% if track.bpm == b %}
                         <option value="{{track.bpm}}" selected>{{track.bpm}}</option>
@@ -80,8 +80,10 @@
 			<label for="edit_bpm">BPM (nearest value)</label>
         </div>
         <div>
-            <input id="length" name="length" type="text" value="{{ track.length }}">
-			<label for="length">Length</label>
+            <input id="edit_minutes" name="minutes" type="number" value="{{track.minutes}}" required>
+			<label for="edit_minutes">Minutes</label>
+            <input id="edit_seconds" name="seconds" type="number" min="0" max="59" value="{{track.seconds}}" required>
+			<label for="edit_seconds">Seconds</label>
         </div>
         <button type="submit" name="action">Update
         </button>
