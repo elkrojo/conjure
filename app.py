@@ -55,9 +55,11 @@ def artist_page(artist_id, artist_name):
 def edit_track(track_id):
     track = mongo.db.tracks.find_one({'_id': ObjectId(track_id)})
     genres = mongo.db.genre.find()
+    moods = mongo.db.moods.find()
     return render_template("edit_track.html",
                            track=track,
-                           genres=genres)
+                           genres=genres,
+                           moods=moods)
 
 
 @app.route('/update_track/<artist_name>/<track_id>', methods=["POST"])

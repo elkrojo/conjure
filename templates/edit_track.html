@@ -33,7 +33,14 @@
         </div>
         <div>
              <select id="mood" name="mood" value="{ track.mood }">
-                <option value="">-- select one --</option>
+                {% for mood in moods %}
+                    {% if mood.mood == track.mood %}
+                        <option value="{{track.mood}}" selected>{{track.mood}}</option>
+                    {% else %}
+                        <option value="{{mood.mood}}">{{mood.mood}}</option>
+                    {% endif %}
+                {% endfor %}
+                <!-- <option value="">-- select one --</option>
                 <option value="happy">Happy</option>
                 <option value="exuberant">Exuberant</option>
                 <option value="energetic">Energetic</option>
@@ -41,7 +48,7 @@
                 <option value="anxious_sad">Anxious/Sad</option>
                 <option value="depression">Depression</option>
                 <option value="calm">Calm</option>
-                <option value="contentment">Contentment</option>
+                <option value="contentment">Contentment</option> -->
             </select>
 			<label for="mood">Mood</label>
         </div>
