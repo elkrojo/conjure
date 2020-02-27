@@ -44,8 +44,16 @@
 			<label for="edit_mood">Mood</label>
         </div>
         <div>
-            <input id="year" name="year" type="text" value="{{ track.year }}">
-			<label for="year">Year</label>
+            <select id="edit_year" name="year">
+                {% for y in range(2020, 1899, -1) %}
+                    {% if track.year == y %}
+                        <option value="{{track.year}}" selected>{{track.year}}</option>
+                    {% else %}
+                        <option value="{{y}}">{{y}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+			<label for="edit_year">Year</label>
         </div>
         <div>
             <input id="country" name="country" type="text" value="{{ track.country.title() }}">

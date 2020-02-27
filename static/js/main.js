@@ -427,9 +427,9 @@ $(document).ready(function() {
         }
     });
 
-    for (i = new Date().getFullYear(); i > 1900; i--) {
-        $('#add_year').append($('<option />').val(i).html(i));
-    }
+    // for (i = new Date().getFullYear(); i > 1900; i--) {
+    //     $('#add_year').append($('<option />').val(i).html(i));
+    // }
 
     for (let c in countryListAlpha2) {
         $('#add_country').append($('<option />').val(c).html(countryListAlpha2[c]));

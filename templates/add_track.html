@@ -34,21 +34,15 @@
                 {% for mood in moods %}
                         <option value="{{mood.mood}}">{{mood.mood}}</option>
                 {% endfor %}
-                <!-- <option value="">-- select one --</option>
-                <option value="happy">Happy</option>
-                <option value="exuberant">Exuberant</option>
-                <option value="energetic">Energetic</option>
-                <option value="frantic">Frantic</option>
-                <option value="anxious_sad">Anxious/Sad</option>
-                <option value="depression">Depression</option>
-                <option value="calm">Calm</option>
-                <option value="contentment">Contentment</option> -->
             </select>
 			<label for="add_mood">Mood</label>
         </div>
         <div>
             <select id="add_year" name="year" required>
                 <option value="">-- select one --</option>
+                {% for y in range(2020, 1899, -1) %}
+                    <option value="{{y}}">{{y}}</option>
+                {% endfor %}
             </select>
 			<label for="add_year">Year</label>
         </div>
