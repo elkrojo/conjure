@@ -68,8 +68,16 @@
 			<label for="edit_country">Country</label>
         </div>
         <div>
-            <input id="bpm" name="bpm" type="text" value="{{ track.bpm }}">
-			<label for="bpm">BPM (nearest value)</label>
+            <select id="edit_bpm" name="bpm">
+                {% for b in range(50, 201, 5) %}
+                    {% if track.bpm == b %}
+                        <option value="{{track.bpm}}" selected>{{track.bpm}}</option>
+                    {% else %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+			<label for="edit_bpm">BPM (nearest value)</label>
         </div>
         <div>
             <input id="length" name="length" type="text" value="{{ track.length }}">

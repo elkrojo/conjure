@@ -57,7 +57,11 @@
         </div>
         <div>
             <select id="add_bpm" name="bpm" required>
-            <option value="0">None</option>
+                <option value="">-- select one --</option>
+                <option value="0">None</option>
+                {% for b in range(50, 201, 5) %}
+                    <option value="{{b}}">{{b}}</option>
+                {% endfor %}
             </select>
 			<label for="add_bpm">BPM (nearest value)</label>
         </div>
