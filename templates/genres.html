@@ -1,15 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-    
-    <ul>
-	{% for genre in genres %}
-
-	<li>
-		<a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
-			{{ genre.genre_name.title().replace("_", " ") }}
-		</a>
-	</li>
-
-	{% endfor %}
-</ul>
-
+	<div id="genre-box">
+        {% for genre in genres %}
+            <a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
+                <div class="genre-item-content">
+                    {{ genre.genre_name.title().replace("_", " ") }}
+                </div>
+            </a>  
+        {% endfor %}
+    </div>
 {% endblock %}
