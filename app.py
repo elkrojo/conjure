@@ -145,6 +145,11 @@ def genre_page(genre_id, genre_name):
     return render_template("genre_page.html", genre_name=genre_name.replace("_", " "), styles=styles)
 
 
+@app.route('/style_page/<genre_style>')
+def style_page(genre_style):
+    tracks = mongo.db.tracks.find({"genre_style": genre_style})
+    return render_template("style_page.html", tracks=tracks, genre_style=genre_style)
+
 @app.route('/get_moods')
 def get_moods():
     return render_template("moods.html")

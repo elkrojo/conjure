@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-	<div id="genre-box">
+	<div class="genre-box">
         {% for genre in genres %}
             <a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
                 <div class="genre-item-content">

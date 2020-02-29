@@ -265,21 +265,21 @@ ul li a:hover {
     color: var(--graphite);
 }
 
-#genre-box {
+.genre-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-gap: 10px;
 }
 
-#genre-box a {
+.genre-box a {
     text-decoration: none;
     background-color: rgba(41, 41, 41, 0.9);
     border: 1px solid transparent;
     transition: 0.2s ease-in-out;
 }
 
-#genre-box a:hover {
+.genre-box a:hover {
     background-color: rgba(41, 41, 41, 1);
     border: 1px solid var(--warm-yellow);
 }

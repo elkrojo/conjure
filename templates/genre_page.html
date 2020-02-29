@@ -1,12 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-
-    <h1>{{ genre_name.title() }}</h1>
-    <ul>
+	<div class="genre-box">
         {% for style in styles %}
-        <li>
-            {{ style.title().replace("_", " ") }}
-        </li>
+            <a href="{{ url_for('style_page', genre_style=style) }}">
+                <div class="genre-item-content">
+                    {{ style.title() }}
+                </div>
+            </a>  
         {% endfor %}
-    </ul>
-
+    </div>
 {% endblock %}
