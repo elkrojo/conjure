@@ -10,9 +10,10 @@ var days = Math.floor(t / (1000 * 60 * 60 * 24));
 
 // Select image per day
 var rotator = days % bgImages.length;
+var bgImage = 'url(static/images/background/' + bgImages[rotator] + ')';
 
 $(document).ready(function() {
-    $('body').css({'background-image': 'url(static/images/background/' + bgImages[rotator] + ')'});
+    $('body').css({'background-image': bgImage});
 
     $('#add_genre_name, #edit_genre_name').change(function() {
         var val = $(this).val();

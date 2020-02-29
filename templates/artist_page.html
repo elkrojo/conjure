@@ -2,7 +2,7 @@
 
 <div class="artist-header">
 	<h1>{{ artist_name.title() }}</h1>
-	<img id="profile-image" src="{{ artist_image }}">
+	<img id="profile-image" src="{{ url_for('static', filename=artist_image) }}">
 </div>
 
 	<div class="track-table">
@@ -24,5 +24,4 @@
 			{% endfor %}
 		</table>
 	</div>
-
-	{% endblock %}
+{% endblock %}
