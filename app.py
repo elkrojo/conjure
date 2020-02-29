@@ -55,11 +55,14 @@ def artist_page(artist_id, artist_name):
 def edit_track(track_id):
     track = mongo.db.tracks.find_one({'_id': ObjectId(track_id)})
     genres = mongo.db.genre.find()
+    track_genre = mongo.db.genre.find_one({"genre_name": track["genre_name"]})
+    track_styles = track_genre["genre_style"]
     moods = mongo.db.moods.find()
     countries = mongo.db.countries.find()
     return render_template("edit_track.html",
                            track=track,
                            genres=genres,
+                           track_styles=track_styles,
                            moods=moods,
                            countries=countries)
 

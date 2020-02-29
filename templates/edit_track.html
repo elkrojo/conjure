@@ -28,6 +28,13 @@
         <div>
             <select id="edit_genre_style" name="genre_style" required>
                 <option value="">-- select above first --</option>
+                {% for style in track_styles %}
+                    {% if style == track.genre_style %}
+                        <option value="{{track.genre_style}}" selected>{{track.genre_style.title()}}</option>
+                    {% else %}
+                        <option value="{{style}}">{{style.title()}}</option>
+                    {% endif %}
+                {% endfor %}
             </select>
 			<label for="edit_genre_style">Style</label>
         </div>
