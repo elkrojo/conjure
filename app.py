@@ -142,7 +142,6 @@ def get_genres():
 def genre_page(genre_id, genre_name):
     genre = mongo.db.genre.find_one({"_id": ObjectId(genre_id)})
     styles = genre["genre_style"]
-    print(styles)
     return render_template("genre_page.html", genre_name=genre_name.replace("_", " "), styles=styles)
 
 

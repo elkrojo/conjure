@@ -14,6 +14,7 @@ html {
 }
 
 body {
+    background-image: url('/static/images/background/vinyl_grooves_01.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -163,7 +164,7 @@ ul li a:hover {
 /* Right Container */
 .right-container {
     margin: 0 16px 0 32px;
-    /* background-color: rgba(256, 256, 256, 0.8); */
+    
 }
 
 /* .right-container h1 {
@@ -192,7 +193,8 @@ ul li a:hover {
 
 /* Track table */
 .artist-header {
-    border: 1px solid var(--graphite-dark);
+    box-shadow: 0 8px 6px -6px var(--graphite);
+    /* border: 1px solid var(--graphite-dark); */
     /* outline: 1px solid var(--graphite-dark); */
     overflow: hidden;
     background-color: var(--graphite);
@@ -228,20 +230,34 @@ ul li a:hover {
 } */
 
 .track-table {
-    margin-top: 0.67em;
+    background-color: #e4e4e4;
+    margin-top: 1.3em;
+    box-shadow: 0 8px 6px -6px var(--graphite);
 }
 
 .track-table table {
     width: 100%;
-}
-
-.track-table th {
-    text-align: left;
-    border-bottom: 1px solid var(--graphite-lite);
+    border-collapse: collapse;
 }
 
 .track-table tr {
     padding: 4px 0;
+}
+
+.track-table tr:nth-child(odd) {
+    background-color: var(--graphite-lite);
+}
+
+.track-table th {
+    background-color: var(--graphite);
+    color: var(--graphite-lite);
+    text-align: left;
+    font-weight: 400;
+    padding-left: 0.67em;
+}
+
+.track-table td {
+    padding-left: 0.67em;
 }
 
 .track-table a {

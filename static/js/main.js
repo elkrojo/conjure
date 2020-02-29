@@ -13,7 +13,7 @@ var rotator = days % bgImages.length;
 var bgImage = 'url(static/images/background/' + bgImages[rotator] + ')';
 
 $(document).ready(function() {
-    $('body').css({'background-image': bgImage});
+    // $('body').css({'background-image': bgImage});
 
     $('#add_genre_name, #edit_genre_name').change(function() {
         var val = $(this).val();
