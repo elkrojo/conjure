@@ -14,35 +14,10 @@
 <body>
 	<header id="header">
 		<div class="container">
-			<div id="logo">
-				<a href="{{ url_for('index') }}">
-					<h1>Con<span id="j-color">j</span>ure</h1>
-				</a>
-			</div>
-			<nav id="nav">
-				<ul>
-					<li>
-						<a href="{{ url_for('index') }}">Home</a>
-					</li>
-					<li>
-						<a href="{{ url_for('about') }}">About</a>
-					</li>
-					<li>
-						<a href="{{ url_for('contact') }}">Contact</a>
-					</li>
-				</ul>
-			</nav>
 		</div>
 	</header>
 
 	<div class="container">
-		<div class="search-container">
-			<form>
-				<input type="text" name="search" id="search" placeholder="Enter name of artist here...">
-				<input type="submit" value="Search">
-            </form>
-		</div>
-
 		<div class="content-container">
 			<div class="left-container">
 				<div class="menu-container">
@@ -78,7 +53,7 @@
 					</div>
                     <div class="menu-item">
 						<a href="{{ url_for('add_track') }}">
-							<h3>Insert New Track</h3>
+							<h3>Add New Track</h3>
 						</a>
 					</div>
 				</div>

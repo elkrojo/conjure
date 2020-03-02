@@ -12,6 +12,8 @@ var days = Math.floor(t / (1000 * 60 * 60 * 24));
 var rotator = days % bgImages.length;
 var bgImage = 'url(static/images/background/' + bgImages[rotator] + ')';
 
+
+// Page load functions
 $(document).ready(function() {
     // $('body').css({'background-image': bgImage});
 
