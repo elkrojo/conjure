@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
         <div class="artist-header">
-            <h1>BPM Range: {{ lower_limit }} - {{ upper_limit }}</h1>
+            <h1>Country: {{ country_name.title() }}</h1>
         </div>
 
         <div class="track-table">
@@ -8,15 +8,13 @@
                 <tr id="table-header">
                     <th>Artist</th>
                     <th>Track</th>
-                    <th>BPM</th>
                     <th></th>
                     <th></th>
                 </tr>
                 {% for track in tracks %}
                     <tr>
                         <td>{{ track.artist_name.title() }}</td>
-                        <td>{{ track.track_name.title() }}</td>
-                        <td>{{ track.bpm }}</td>
+                        <td>{{ track.track_name.title() }}</td> 
                         <td><a href="{{ url_for('edit_track', track_id=track._id, artist_name=track.artist_name) }}">Edit
                                 <i class="fas fa-edit"></i></a>
                         </td>

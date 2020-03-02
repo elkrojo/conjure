@@ -178,8 +178,7 @@ def search_bpm():
 
 @app.route('/bpm_page/<lower_limit>/<upper_limit>')
 def bpm_page(lower_limit, upper_limit):
-    # tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
-    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit}})
+    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
     print(tracks)
     return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
@@ -189,9 +188,30 @@ def get_year():
     return render_template("year.html")
 
 
+@app.route('/search_year', methods=["POST"])
+def search_year():
+    dict_form = request.form.to_dict()
+    lower_year = dict_form["lower_year"]
+    upper_year = dict_form["upper_year"]
+    return redirect(url_for('year_page', lower_year=lower_year, upper_year=upper_year))
+
+
+@app.route('/year_page/<lower_year>/<upper_year>')
+def year_page(lower_year, upper_year):
+    tracks = mongo.db.tracks.find({"year": {"$gt": lower_year, "$lt": upper_year}})
+    return render_template("year_page.html", lower_year=lower_year, upper_year=upper_year, tracks=tracks)
+
+
 @app.route('/get_country')
 def get_country():
-    return render_template("country.html")
+    countries = mongo.db.countries.find()
+    return render_template("country.html", countries=countries)
+
+
+@app.route('/country_page/<country_id>/<country_name>')
+def country_page(country_id, country_name):
+    tracks = mongo.db.tracks.find({"country": country_name})
+    return render_template("country_page.html", country_name=country_name, tracks=tracks)
 
 
 if __name__ == '__main__':

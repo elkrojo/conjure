@@ -230,7 +230,7 @@ ul li a:hover {
 } */
 
 .track-table {
-    background-color: #e4e4e4;
+    
     margin-top: 1.3em;
     box-shadow: 0 8px 6px -6px var(--graphite);
 }
@@ -241,6 +241,7 @@ ul li a:hover {
 }
 
 .track-table tr {
+    background-color: #e4e4e4;
     padding: 4px 0;
 }
 

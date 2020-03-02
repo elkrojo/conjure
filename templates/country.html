@@ -1,5 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-    
-    <h1>COUNTRY</h1>
-
+	<div class="selection-box">
+        {% for country in countries %}
+            <a href="{{ url_for('country_page', country_id=country._id, country_name=country.country) }}">
+                <div class="selection-item-content">
+                    {{ country.country.title() }}
+                </div>
+            </a>  
+        {% endfor %}
+    </div>
 {% endblock %}
