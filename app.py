@@ -152,12 +152,35 @@ def style_page(genre_style):
 
 @app.route('/get_moods')
 def get_moods():
-    return render_template("moods.html")
+    moods = mongo.db.moods.find().sort("mood", 1)
+    return render_template("moods.html", moods=moods)
+
+
+@app.route('/mood_page/<mood_id>/<mood_name>')
+def mood_page(mood_id, mood_name):
+    mood = mongo.db.moods.find_one({'_id': ObjectId(mood_id)})
+    tracks = mongo.db.tracks.find({"mood": mood["mood"]})
+    return render_template("mood_page.html", tracks=tracks, mood_name=mood_name)
 
 
 @app.route('/get_bpm')
 def get_bpm():
     return render_template("bpm.html")
+
+
+@app.route('/search_bpm', methods=["POST"])
+def search_bpm():
+    dict_form = request.form.to_dict()
+    lower_limit = dict_form["lower_limit"]
+    upper_limit = dict_form["upper_limit"]
+    return redirect(url_for('bpm_page', lower_limit=lower_limit, upper_limit=upper_limit))
+
+
+@app.route('/bpm_page/<lower_limit>/<upper_limit>')
+def bpm_page(lower_limit, upper_limit):
+    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
+    print(tracks)
+    return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
 
 @app.route('/get_year')

@@ -265,26 +265,26 @@ ul li a:hover {
     color: var(--graphite);
 }
 
-.genre-box {
+.selection-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-gap: 10px;
 }
 
-.genre-box a {
+.selection-box a {
     text-decoration: none;
     background-color: rgba(41, 41, 41, 0.9);
     border: 1px solid transparent;
     transition: 0.2s ease-in-out;
 }
 
-.genre-box a:hover {
+.selection-box a:hover {
     background-color: rgba(41, 41, 41, 1);
     border: 1px solid var(--warm-yellow);
 }
 
-.genre-item-content {
+.selection-item-content {
     display: flex;
     justify-content: center;
     align-items: center;

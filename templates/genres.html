@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-	<div class="genre-box">
+	<div class="selection-box">
         {% for genre in genres %}
             <a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
-                <div class="genre-item-content">
+                <div class="selection-item-content">
                     {{ genre.genre_name.title().replace("_", " ") }}
                 </div>
             </a>  
