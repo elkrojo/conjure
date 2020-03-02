@@ -178,7 +178,8 @@ def search_bpm():
 
 @app.route('/bpm_page/<lower_limit>/<upper_limit>')
 def bpm_page(lower_limit, upper_limit):
-    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
+    # tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
+    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit}})
     print(tracks)
     return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
