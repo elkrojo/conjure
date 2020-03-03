@@ -109,38 +109,6 @@ def delete_track(track_id, artist_name):
     return redirect(url_for('artist_page', artist_id=artist_id, artist_name=artist_name))
 
 
-@app.route('/add_track')
-def add_track():
-    genres = mongo.db.genre.find()
-    moods = mongo.db.moods.find()
-    countries = mongo.db.countries.find()
-    return render_template("add_track.html", genres=genres, moods=moods, countries=countries)
-
-
-@app.route('/insert_track', methods=["POST"])
-def insert_track():
-    artists = mongo.db.artists
-    unique_artists = artists.distinct("artist_name")
-    tracks = mongo.db.tracks
-    dict_form = request.form.to_dict()
-    dict_form_lower = lower_dict_attr(dict_form)
-    _trkid = tracks.insert_one(dict_form_lower)
-    track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
-
-    _artid = None
-    if track['artist_name'] not in unique_artists:
-        _artid = artists.insert_one({'artist_name': track['artist_name']})
-        _artid = _artid.inserted_id
-    else:
-        _artid = artists.find_one({'artist_name': track['artist_name']})
-        _artid = _artid["_id"]
-
-    artist_id = _artid
-
-    return redirect(url_for('artist_page', artist_id=artist_id,
-                            artist_name=track['artist_name']))
-
-
 @app.route('/get_genres')
 def get_genres():
     genres = mongo.db.genre.find().sort("genre_name", 1)
@@ -221,6 +189,70 @@ def get_country():
 def country_page(country_id, country_name):
     tracks = mongo.db.tracks.find({"country": country_name})
     return render_template("country_page.html", country_name=country_name, tracks=tracks)
+
+
+@app.route('/add_track')
+def add_track():
+    genres = mongo.db.genre.find()
+    moods = mongo.db.moods.find()
+    countries = mongo.db.countries.find()
+    return render_template("add_track.html", genres=genres, moods=moods, countries=countries)
+
+
+@app.route('/insert_track', methods=["POST"])
+def insert_track():
+    artists = mongo.db.artists
+    unique_artists = artists.distinct("artist_name")
+    tracks = mongo.db.tracks
+    dict_form = request.form.to_dict()
+    dict_form_lower = lower_dict_attr(dict_form)
+    _trkid = tracks.insert_one(dict_form_lower)
+    track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
+
+    _artid = None
+    if track['artist_name'] not in unique_artists:
+        _artid = artists.insert_one({'artist_name': track['artist_name']})
+        _artid = _artid.inserted_id
+    else:
+        _artid = artists.find_one({'artist_name': track['artist_name']})
+        _artid = _artid["_id"]
+
+    artist_id = _artid
+
+    return redirect(url_for('artist_page', artist_id=artist_id,
+                            artist_name=track['artist_name']))
+
+
+@app.route('/set_playlist')
+def set_playlist():
+    genres = mongo.db.genre.find()
+    moods = mongo.db.moods.find()
+    return render_template("set_playlist.html", genres=genres, moods=moods)
+
+
+@app.route('/gen_playlist', methods=["POST"])
+def gen_playlist():
+    dict_form = request.form.to_dict()
+    genre = dict_form["genre"]
+    mood = dict_form["mood"]
+    low_year = dict_form["lower_year"]
+    upr_year = dict_form["upper_year"]
+    low_bpm = dict_form["bpm_lower_limit"]
+    upr_bpm = dict_form["bpm_upper_limit"]
+    track_limit = dict_form["track_limit"]
+    return redirect(url_for('your_playlist', genre=genre, mood=mood, low_year=low_year, upr_year=upr_year, low_bpm=low_bpm, upr_bpm=upr_bpm, track_limit=track_limit))
+
+
+@app.route('/your_playlist/<genre>/<mood>/<low_year>/<upr_year>/<low_bpm>/<upr_bpm>/<track_limit>')
+def your_playlist(genre, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit):
+    tracks = mongo.db.tracks.aggregate([
+                                       {"$match": {"genre_name": genre,
+                                                   "mood": mood,
+                                                   "year": {"$gt": low_year, "$lt": upr_year},
+                                                   "bpm": {"$gt": low_bpm, "$lt": upr_bpm}}},
+                                       {"$sample": {"size": int(track_limit)}}
+                                       ])
+    return render_template("your_playlist.html", tracks=tracks)
 
 
 if __name__ == '__main__':
