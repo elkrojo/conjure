@@ -52,7 +52,7 @@ def artist_page(artist_id, artist_name):
     if "image_path" in artist.keys():
         artist_image = artist["image_path"]
     else:
-        artist_image = "https://via.placeholder.com/720x348.png?text=Placeholder+Image"
+        artist_image = "/images/artist/placeholder.jpg"
 
     return render_template("artist_page.html",
                            tracks=tracks,
