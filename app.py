@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from py_functions import lower_dict_attr
+import string
 if os.path.exists("env.py"):
     import env
 
@@ -32,7 +33,15 @@ def contact():
 @app.route('/get_artists')
 def get_artists():
     artists = mongo.db.artists.find().sort("artist_name", 1)
-    return render_template("artists.html", artists=artists)
+    letters = string.ascii_uppercase[:26]
+    return render_template("artists.html", letters=letters, artists=artists)
+
+
+@app.route('/filter_artist/<letter>')
+def filter_artist(letter):
+    artists = mongo.db.artists.find({"artist_name": {"$regex": "^" + letter.lower()}})
+    letters = string.ascii_uppercase[:26]
+    return render_template("artists.html", letters=letters, artists=artists)
 
 
 @app.route('/artist_page/<artist_id>/<artist_name>')

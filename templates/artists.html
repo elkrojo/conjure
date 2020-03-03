@@ -1,5 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
+    {% for letter in letters %}
+        <a href="{{url_for('filter_artist', letter=letter)}}">{{letter}}</a>
+    {% endfor %}
+
 <ul id="artist-list">
 	{% for artist in artists %}
         <li>
