@@ -250,6 +250,7 @@ def your_playlist(genre, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit
                                                    "mood": mood,
                                                    "year": {"$gt": low_year, "$lt": upr_year},
                                                    "bpm": {"$gt": low_bpm, "$lt": upr_bpm}}},
+
                                        {"$sample": {"size": int(track_limit)}}
                                        ])
     return render_template("your_playlist.html", tracks=tracks)
