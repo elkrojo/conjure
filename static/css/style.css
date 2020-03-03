@@ -143,6 +143,34 @@ ul li a:hover {
     margin-left: 1.4em;
 }
 
+#index-roll {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.index-letter {
+    display: inline-block;
+    font-size: 1.2em;
+    transition: .2s ease-in-out;
+}
+
+.index-letter:hover {
+    transform: scale(1.5);
+}
+
+.index-letter a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.index-letter a:hover {
+    color: var(--graphite-dark);
+}
+
+#artist-list {
+    margin: 0;
+}
+
 /* Track table */
 .artist-header {
     box-shadow: 0 8px 6px -6px var(--graphite);
