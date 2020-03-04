@@ -19,7 +19,8 @@ body {
     background-position: center center;
     background-size: cover;
     color: var(--graphite);
-    font-family: 'M PLUS 1p', sans-serif;
+    /* font-family: 'M PLUS 1p', sans-serif; */
+    font-family: 'Nunito', sans-serif;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -105,7 +106,7 @@ ul li a:hover {
 
 .menu-item {
     background-color: var(--main-bg);
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     padding-left: 12px;
     margin-bottom: 4px;
 }
@@ -118,7 +119,7 @@ ul li a:hover {
     background-color: var(--graphite-lite);
     color: var(--graphite-dark);
     transition: ease-in-out 0.2s;
-    border: 2px solid var(--graphite-dark);
+    border: 1px solid var(--graphite-dark);
 }
 
 .menu-item a {
@@ -153,13 +154,13 @@ ul li a:hover {
     line-height: 80%;
 }
 
-.right-container ul {
+/* .right-container ul {
     color: var(--graphite);
     list-style: none;
     font-size: 1.2em;
     padding: 0;
     margin-left: 1.4em;
-}
+} */
 
 #index-roll {
     margin-bottom: 16px;
@@ -185,9 +186,42 @@ ul li a:hover {
     color: var(--graphite-dark);
 }
 
-#artist-list {
-    margin: 0;
+#artist-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 10px;
 }
+
+#artist-box a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--graphite);
+    color: var(--graphite-lite);
+    width: auto;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: center;
+}
+
+#artist-box a:hover {
+    background-color: var(--graphite-lite);
+    color: var(--graphite);
+    font-weight: 400;
+}
+
+/* .artist-box-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--graphite);
+    color: var(--graphite-lite);
+    width: auto;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: center;
+} */
 
 /* Track table */
 .artist-header {
@@ -207,7 +241,7 @@ ul li a:hover {
     margin: 0;
     padding: 0.33em 0 0.33em 0.33em;
     font-size: 2em;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 80%;
     width: 100%;
 }
@@ -257,6 +291,7 @@ ul li a:hover {
 
 .track-table th:last-child {
     text-align: center;
+    padding-left: 0;
 }
 
 .track-table td {
@@ -265,6 +300,7 @@ ul li a:hover {
 
 .track-table td:last-child {
     text-align: center;
+    padding-left: 0;
 }
 
 .track-table a {
@@ -358,6 +394,10 @@ ul li a:hover {
     .artist-header h1 {
         text-align: center;
         padding: .5em 0;
+    }
+
+    #profile-image {
+        height: 132px;
     }
 
     .track-table {
