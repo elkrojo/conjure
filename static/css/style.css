@@ -308,7 +308,7 @@ ul li a:hover {
 @media (max-width: 850px) {
     .content-container {
         grid-template-columns: 1fr;
-        margin-top: 0.67em;
+        margin-top: 1.5em;
     }
 
     .menu-container {
@@ -339,7 +339,7 @@ ul li a:hover {
     }
 
     #index-roll {
-        margin: 1em 2.8em;
+        margin: 0 2.8em 1em 2.8em;
     }
 
     .right-container {
