@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
     <form action="{{ url_for('search_bpm') }}" method="POST">
         <div>
+            <label for="lower_limit">Lower Limit (nearest value)</label>
             <select id="lower_limit" name="lower_limit" required>
                 <option value="">-- select one --</option>
                 <option value="0">None</option>
@@ -8,9 +9,9 @@
                     <option value="{{b}}">{{b}}</option>
                 {% endfor %}
             </select>
-			<label for="lower_limit">Lower Limit (nearest value)</label>
         </div>
         <div>
+            <label for="upper_limit">Upper Limit (nearest value, must be higher than value above)</label>
             <select id="upper_limit" name="upper_limit" required>
                  <option value="">-- select one --</option>
                 <option value="0">None</option>
@@ -18,7 +19,6 @@
                     <option value="{{b}}">{{b}}</option>
                 {% endfor %}
             </select>
-			<label for="upper_limit">Upper Limit (nearest value, must be higher than value above)</label>
         </div>
         <button type="submit" name="action">Search</button>
     </form>

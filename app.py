@@ -93,7 +93,8 @@ def update_track(track_id, artist_name):
                     'year': request.form.get('year'),
                     'country': request.form.get('country'),
                     'bpm': request.form.get('bpm'),
-                    'length': request.form.get('length')
+                    'minutes': request.form.get('minutes'),
+                    'seconds': request.form.get('seconds')
                     })
 
     return redirect(url_for('artist_page', artist_id=artist_id, artist_name=artist_name))
