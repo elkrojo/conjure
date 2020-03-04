@@ -206,7 +206,7 @@ ul li a:hover {
     vertical-align: top;
     margin: 0;
     padding: 0.33em 0 0.33em 0.33em;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 400;
     line-height: 80%;
     width: 100%;
@@ -228,7 +228,6 @@ ul li a:hover {
 } */
 
 .track-table {
-    
     margin-top: 1.3em;
     box-shadow: 0 8px 6px -6px var(--graphite);
 }
@@ -241,6 +240,7 @@ ul li a:hover {
 .track-table tr {
     background-color: #e4e4e4;
     padding: 4px 0;
+    line-height: 32px;
 }
 
 .track-table tr:nth-child(odd) {
@@ -255,8 +255,16 @@ ul li a:hover {
     padding-left: 0.67em;
 }
 
+.track-table th:last-child {
+    text-align: center;
+}
+
 .track-table td {
     padding-left: 0.67em;
+}
+
+.track-table td:last-child {
+    text-align: center;
 }
 
 .track-table a {
@@ -266,7 +274,7 @@ ul li a:hover {
 
 .selection-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-gap: 10px;
 }
@@ -290,6 +298,7 @@ ul li a:hover {
     color: var(--graphite-lite);
     width: auto;
     height: 120px;
+    font-size: 1.2em;
     text-align: center;
     text-decoration: none;
 }
@@ -329,13 +338,30 @@ ul li a:hover {
         margin: 0;
     }
 
+    #index-roll {
+        margin: 1em 2.8em;
+    }
+
     .right-container {
-        margin: 0;
+        margin: 1em 0 0 0;
     }
 
     .index-letter {
-        font-size: 2em;
+        font-size: 1.8em;
         margin: 8px 12px;
+    }
+
+    .artist-header {
+        box-shadow: none;
+    }
+
+    .artist-header h1 {
+        text-align: center;
+        padding: .5em 0;
+    }
+
+    .track-table {
+        box-shadow: none;
     }
 }
 
@@ -349,8 +375,21 @@ ul li a:hover {
         font-weight: 500;
     }
 
+    #index-roll {
+        margin: 0.3em 0 0.67em 0;
+    }
+
     .index-letter {
         font-size: 1.6em;
         margin: 3px 8px;
+    }
+
+    .artist-header h1 {
+        font-size: 1.5em;
+    }
+
+    .selection-item-content {
+        height: 60px;
+        font-size: 0.83em;
     }
 }
