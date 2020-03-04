@@ -14,6 +14,9 @@
 <body>
 	<header id="header">
 		<div class="container">
+            <div id="logo">
+                <a href="{{url_for('index')}}"><h1>Logo</h1></a>
+            </div>
 		</div>
 	</header>
 
@@ -21,46 +24,46 @@
 		<div class="content-container">
 			<div class="left-container">
 				<div class="menu-container">
-					<div class="menu-item">
-						<a href="{{ url_for('get_artists') }}">
-							<h3>Artist</h3>
-						</a>
-					</div>
-					<div class="menu-item">
-						<a href="{{ url_for('get_genres') }}">
+                    <a href="{{ url_for('get_artists') }}">
+					    <div class="menu-item">
+						    <h3>Artist</h3>
+                        </div>
+					</a>
+					<a href="{{ url_for('get_genres') }}">
+                        <div class="menu-item">
 							<h3>Genre</h3>
-						</a>
-					</div>
-					<div class="menu-item">
-						<a href="{{ url_for('get_moods') }}">
+                        </div>
+					</a>
+					<a href="{{ url_for('get_moods') }}">
+                        <div class="menu-item">
 							<h3>Mood</h3>
-						</a>
-					</div>
-					<div class="menu-item">
-						<a href="{{ url_for('get_bpm') }}">
+                        </div>
+					</a>
+	                <a href="{{ url_for('get_bpm') }}">
+                        <div class="menu-item">
 							<h3>BPM</h3>
-						</a>
-					</div>
-					<div class="menu-item">
-						<a href="{{ url_for('get_year') }}">
-							<h3>Year</h3>
-						</a>
-					</div>
-					<div class="menu-item">
-						<a href="{{ url_for('get_country') }}">
-							<h3>Country</h3>
-						</a>
-					</div>
-                    <div class="menu-item">
-						<a href="{{ url_for('add_track') }}">
-							<h3>Add New Track</h3>
-						</a>
-					</div>
-                    <div class="menu-item">
-						<a href="{{ url_for('set_playlist') }}">
-							<h3>Generate Playlist</h3>
-						</a>
-					</div>
+                        </div>
+					</a>
+                    <a href="{{ url_for('get_year') }}">
+                        <div class="menu-item">
+                            <h3>Year</h3>
+                        </div>
+                    </a>
+                    <a href="{{ url_for('get_country') }}">
+                        <div class="menu-item">
+                            <h3>Country</h3>
+                        </div>
+                    </a>
+                    <a href="{{ url_for('add_track') }}">
+                        <div class="menu-item">
+                            <h3>Add Track</h3>
+                        </div>
+                    </a>
+                    <a href="{{ url_for('set_playlist') }}">
+                        <div class="menu-item">
+                            <h3>Conjure Playlist</h3>
+                        </div>
+                    </a>	
 				</div>
 			</div>
 			<div class="right-container">
