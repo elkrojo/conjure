@@ -17,10 +17,10 @@ var bgImage = 'url(static/images/background/' + bgImages[rotator] + ')';
 $(document).ready(function() {
     // $('body').css({'background-image': bgImage});
 
-    $('#add_genre_name, #edit_genre_name').change(function() {
+    $('#add_genre_name, #edit_genre_name, #set_genre_name').change(function() {
         var val = $(this).val();
         if (val == "rock") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='pop rock'>Pop Rock</option>
                                                             <option value='alternative rock'>Alternative Rock</option>
                                                             <option value='indie rock'>Indie Rock</option>
@@ -33,7 +33,7 @@ $(document).ready(function() {
                                                             <option value='prog rock'>Prog Rock</option>`);
         }
         else if (val == "electronic") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='house'>House</option>
                                                             <option value='synth-pop'>Synth-Pop</option>
                                                             <option value='techno'>Techno</option>
@@ -46,7 +46,7 @@ $(document).ready(function() {
                                                             <option value='deep house'>Deep House</option>`);
         }
         else if (val == "pop") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='pop rock'>Pop Rock</option>
                                                             <option value='vocal'>Vocal</option>
                                                             <option value='ballad'>Ballad</option>
@@ -59,7 +59,7 @@ $(document).ready(function() {
                                                             <option value='easy listening'>Easy Listening</option>`);
         }
         else if (val == "funk / soul") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='soul'>Soul</option>
                                                             <option value='disco'>Disco</option>
                                                             <option value='funk'>Funk</option>
@@ -72,7 +72,7 @@ $(document).ready(function() {
                                                             <option value='vocal'>Vocal</option>`);
         }
         else if (val == "jazz") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='easy listening'>Easy Listening</option>
                                                             <option value='contemporary jazz'>Contemporary Jazz</option>
                                                             <option value='big band'>Big Band</option>
@@ -85,7 +85,7 @@ $(document).ready(function() {
                                                             <option value='bop'>Bop</option>`);
         }
         else if (val == "folk, world & country") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='country'>Country</option>
                                                             <option value='folk'>Folk</option>
                                                             <option value='folk rock'>Folk Rock</option>
@@ -98,7 +98,7 @@ $(document).ready(function() {
                                                             <option value='laiko'>Laiko</option>`);
         }
         else if (val == "hip hop") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='rnb / swing'>RnB / Swing</option>
                                                             <option value='pop rap'>Pop Rap</option>
                                                             <option value='house'>House</option>
@@ -111,7 +111,7 @@ $(document).ready(function() {
                                                             <option value='synth-pop'>Synth-Pop</option>`);
         }
         else if (val == "classical") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='romantic'>Romantic</option>
                                                             <option value='classical'>Classical</option>
                                                             <option value='baroque'>Baroque</option>
@@ -124,7 +124,7 @@ $(document).ready(function() {
                                                             <option value='modern classical'>Modern Classical</option>`);
         }
         else if (val == "stage & screen") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='soundtrack'>Soundtrack</option>
                                                             <option value='score'>Score</option>
                                                             <option value='theme'>Theme</option>
@@ -137,7 +137,7 @@ $(document).ready(function() {
                                                             <option value='disco'>Disco</option>`);
         }
         else if (val == "reggae") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='dancehall'>Dancehall</option>
                                                             <option value='reggae'>Reggae</option>
                                                             <option value='dub'>Dub</option>
@@ -150,7 +150,7 @@ $(document).ready(function() {
                                                             <option value='calypso'>Calypso</option>`);
         }
         else if (val == "latin") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='salsa'>Salsa</option>
                                                             <option value='mpb'>MPB</option>
                                                             <option value='samba'>Samba</option>
@@ -163,7 +163,7 @@ $(document).ready(function() {
                                                             <option value='vocal'>Vocal</option>`);
         }
         else if (val == "blues") {
-            $('#add_genre_style, #edit_genre_style').html(` <option value="">-- select one --</option>
+            $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='blues rock'>Blues Rock</option>
                                                             <option value='rhythm & blues'>Rhythm & Blues</option>
                                                             <option value='rock & roll'>Rock & Roll</option>

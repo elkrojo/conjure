@@ -3,12 +3,18 @@
     <div class="form-container">
         <form action="{{url_for('gen_playlist')}}" method="POST">
             <div>
-                <label for="set_genre">Genre</label>
-                <select id="set_genre" name="genre" required>
+                <label for="set_genre_name">Genre</label>
+                <select id="set_genre_name" name="genre" required>
                     <option value="">-- select one --</option>
                     {% for genre in genres %}
                         <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
                     {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="set_genre_style">Style</label>
+                <select id="set_genre_style" name="style" required>
+                    <option value="">-- select above first --</option>
                 </select>
             </div>
             <div>
