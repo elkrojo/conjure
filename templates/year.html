@@ -1,22 +1,22 @@
 {% extends 'base.html' %} {% block content %}
     <form action="{{ url_for('search_year') }}" method="POST">
         <div>
+            <label for="lower_year">From</label>
             <select id="lower_year" name="lower_year" required>
                 <option value="">-- select one --</option>
                 {% for y in range(2020, 1899, -1) %}
                     <option value="{{y}}">{{y}}</option>
                 {% endfor %}
             </select>
-			<label for="lower_year">From</label>
         </div>
         <div>
+            <label for="upper_year">To (must be higher than above)</label>
             <select id="upper_year" name="upper_year" required>
                 <option value="">-- select one --</option>
                 {% for y in range(2020, 1899, -1) %}
                     <option value="{{y}}">{{y}}</option>
                 {% endfor %}
             </select>
-			<label for="upper_year">To</label>
         </div>
         <button type="submit" name="action">Search</button>
     </form>

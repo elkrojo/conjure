@@ -1,77 +1,79 @@
 {% extends 'base.html' %} {% block content %}
 
-    <form action="{{ url_for('insert_track') }}" method="POST">
-        <div>
-            <label for="artist_name">Artist</label>
-            <input id="artist_name" name="artist_name" type="text" placeholder="Artist" required>
-        </div>
-        <div>
-            <label for="track_name">Track</label>
-            <input id="track_name" name="track_name" type="text" placeholder="Track" required>
-        </div>
-        <div>
-            <label for="album_ep_name">Album/EP</label>
-            <input id="album_ep_name" name="album_ep_name" type="text" placeholder="Album/EP" required>
-        </div>
-        <div>
-            <label for="add_genre_name">Genre</label>
-            <select id="add_genre_name" name="genre_name" required>
+    <div class="form-container">
+        <form action="{{ url_for('insert_track') }}" method="POST">
+            <div>
+                <label for="artist_name">Artist</label>
+                <input id="artist_name" name="artist_name" type="text" placeholder="Artist" required>
+            </div>
+            <div>
+                <label for="track_name">Track</label>
+                <input id="track_name" name="track_name" type="text" placeholder="Track" required>
+            </div>
+            <div>
+                <label for="album_ep_name">Album/EP</label>
+                <input id="album_ep_name" name="album_ep_name" type="text" placeholder="Album/EP" required>
+            </div>
+            <div>
+                <label for="add_genre_name">Genre</label>
+                <select id="add_genre_name" name="genre_name" required>
+                    <option value="">-- select one --</option>
+                    {% for genre in genres %}
+                        <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="add_genre_style">Style</label>
+                <select id="add_genre_style" name="genre_style" required>
+                    <option value="">-- select above first --</option>
+                </select>
+            </div>
+            <div>
+                <label for="add_mood">Mood</label>
+                <select id="add_mood" name="mood" required>
+                    <option value="">-- select one --</option>
+                    {% for mood in moods %}
+                            <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="add_year">Year</label>
+                <select id="add_year" name="year" required>
+                    <option value="">-- select one --</option>
+                    {% for y in range(2020, 1899, -1) %}
+                        <option value="{{y}}">{{y}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="add_country">Country</label>
+                <select id="add_country" name="country" required>
                 <option value="">-- select one --</option>
-                {% for genre in genres %}
-                    <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
+                {% for country in countries %}
+                        <option value="{{country.country}}">{{country.country.title()}}</option>
                 {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="add_genre_style">Style</label>
-            <select id="add_genre_style" name="genre_style" required>
-                <option value="">-- select above first --</option>
-            </select>
-        </div>
-        <div>
-            <label for="add_mood">Mood</label>
-            <select id="add_mood" name="mood" required>
-                <option value="">-- select one --</option>
-                {% for mood in moods %}
-                        <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="add_year">Year</label>
-            <select id="add_year" name="year" required>
-                <option value="">-- select one --</option>
-                {% for y in range(2020, 1899, -1) %}
-                    <option value="{{y}}">{{y}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="add_country">Country</label>
-            <select id="add_country" name="country" required>
-            <option value="">-- select one --</option>
-            {% for country in countries %}
-                    <option value="{{country.country}}">{{country.country.title()}}</option>
-            {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="add_bpm">BPM (nearest value)</label>
-            <select id="add_bpm" name="bpm" required>
-                <option value="0">None</option>
-                {% for b in range(50, 201, 5) %}
-                    <option value="{{b}}">{{b}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="add_minutes">Minutes</label>
-            <input id="add_minutes" name="minutes" type="number" required>
-            <label for="add_seconds">Seconds</label>
-            <input id="add_seconds" name="seconds" type="number" min="0" max="59" required>
-        </div>
-        <button type="submit" name="action">Insert
-        </button>
-    </form>
+                </select>
+            </div>
+            <div>
+                <label for="add_bpm">BPM (nearest value)</label>
+                <select id="add_bpm" name="bpm" required>
+                    <option value="0">None</option>
+                    {% for b in range(50, 201, 5) %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="add_minutes">Minutes</label>
+                <input id="add_minutes" name="minutes" type="number" required>
+                <label for="add_seconds">Seconds</label>
+                <input id="add_seconds" name="seconds" type="number" min="0" max="59" required>
+            </div>
+            <button type="submit" name="action">Insert
+            </button>
+        </form>
+    </div>
 
 {% endblock %}

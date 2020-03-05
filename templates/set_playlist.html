@@ -1,73 +1,75 @@
 {% extends 'base.html' %} {% block content %}
 
-    <form action="{{url_for('gen_playlist')}}" method="POST">
-        <div>
-            <select id="set_genre" name="genre" required>
-                <option value="">-- select one --</option>
-                {% for genre in genres %}
-                    <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
-                {% endfor %}
-            </select>
-            <label for="set_genre">Genre</label>
-        </div>
-        <div>
-            <select id="set_mood" name="mood" required>
-                <option value="">-- select one --</option>
-                {% for mood in moods %}
-                    <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
-                {% endfor %}
-            </select>
-            <label for="set_mood">Mood</label>
-        </div>
-        <div>
+    <div class="form-container">
+        <form action="{{url_for('gen_playlist')}}" method="POST">
             <div>
-                <select id="set_lower_year" name="lower_year" required>
+                <label for="set_genre">Genre</label>
+                <select id="set_genre" name="genre" required>
                     <option value="">-- select one --</option>
-                    {% for y in range(2020, 1899, -1) %}
-                        <option value="{{y}}">{{y}}</option>
+                    {% for genre in genres %}
+                        <option value="{{genre.genre_name}}">{{genre.genre_name.title()}}</option>
                     {% endfor %}
                 </select>
-                <label for="set_lower_year">From year</label>
             </div>
             <div>
-                <select id="set_upper_year" name="upper_year" required>
+                <label for="set_mood">Mood</label>
+                <select id="set_mood" name="mood" required>
                     <option value="">-- select one --</option>
-                    {% for y in range(2020, 1899, -1) %}
-                        <option value="{{y}}">{{y}}</option>
+                    {% for mood in moods %}
+                        <option value="{{mood.mood}}">{{mood.mood.title()}}</option>
                     {% endfor %}
                 </select>
-                <label for="set_upper_year">To year</label>
             </div>
-        </div>
-        <div>
-            <select id="set_lower_limit" name="bpm_lower_limit" required>
-                <option value="">-- select one --</option>
-                <option value="0">None</option>
-                {% for b in range(50, 201, 5) %}
-                    <option value="{{b}}">{{b}}</option>
-                {% endfor %}
-            </select>
-			<label for="set_lower_limit">BPM Lower Limit (nearest value)</label>
-        </div>
-        <div>
-            <select id="set_upper_limit" name="bpm_upper_limit" required>
-                 <option value="">-- select one --</option>
-                <option value="0">None</option>
-                {% for b in range(50, 201, 5) %}
-                    <option value="{{b}}">{{b}}</option>
-                {% endfor %}
-            </select>
-			<label for="set_upper_limit">BPM Upper Limit (nearest value, must be higher than value above)</label>
-        </div>
-        <div>
-            <select id="set_track_limit" name="track_limit">
-                {% for n in range(2, 51) %}
-                    <option value="{{n}}">{{n}}</option>
-                {% endfor %}
-            </select>
-            <label for="set_track_limit">Number of tracks</label>
-        </div>
-        <button type="submit" name="action">Conjure Playlist</button>
-    </form>
+            <div>
+                <div>
+                    <label for="set_lower_year">From year</label>
+                    <select id="set_lower_year" name="lower_year" required>
+                        <option value="">-- select one --</option>
+                        {% for y in range(2020, 1899, -1) %}
+                            <option value="{{y}}">{{y}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="set_upper_year">To year</label>
+                    <select id="set_upper_year" name="upper_year" required>
+                        <option value="">-- select one --</option>
+                        {% for y in range(2020, 1899, -1) %}
+                            <option value="{{y}}">{{y}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="set_lower_limit">BPM Lower Limit (nearest value)</label>
+                <select id="set_lower_limit" name="bpm_lower_limit" required>
+                    <option value="">-- select one --</option>
+                    <option value="0">None</option>
+                    {% for b in range(50, 201, 5) %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="set_upper_limit">BPM Upper Limit (nearest value, must be higher than value above)</label>
+                <select id="set_upper_limit" name="bpm_upper_limit" required>
+                    <option value="">-- select one --</option>
+                    <option value="0">None</option>
+                    {% for b in range(50, 201, 5) %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="set_track_limit">Number of tracks</label>
+                <select id="set_track_limit" name="track_limit">
+                    {% for n in range(2, 51) %}
+                        <option value="{{n}}">{{n}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" name="action">Conjure Playlist</button>
+        </form>
+    </div>
 
 {% endblock %}
