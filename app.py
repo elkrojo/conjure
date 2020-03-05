@@ -156,7 +156,7 @@ def search_bpm():
 
 @app.route('/bpm_page/<lower_limit>/<upper_limit>')
 def bpm_page(lower_limit, upper_limit):
-    tracks = mongo.db.tracks.find({"bpm": {"$gt": int(lower_limit)-1, "$lt": int(upper_limit)+1}}).sort("bpm", 1)
+    tracks = mongo.db.tracks.find({"bpm": {"$gte": int(lower_limit), "$lte": int(upper_limit)}}).sort("bpm", 1)
     print(tracks)
     return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
@@ -176,7 +176,7 @@ def search_year():
 
 @app.route('/year_page/<lower_year>/<upper_year>')
 def year_page(lower_year, upper_year):
-    tracks = mongo.db.tracks.find({"year": {"$gt": int(lower_year), "$lt": int(upper_year)}})
+    tracks = mongo.db.tracks.find({"year": {"$gte": int(lower_year), "$lte": int(upper_year)}}).sort("year", 1)
     return render_template("year_page.html", lower_year=lower_year, upper_year=upper_year, tracks=tracks)
 
 
