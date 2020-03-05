@@ -67,7 +67,7 @@ def edit_track(track_id):
     track_genre = mongo.db.genre.find_one({"genre_name": track["genre_name"]})
     track_styles = track_genre["genre_style"]
     moods = mongo.db.moods.find()
-    countries = mongo.db.countries.find()
+    countries = mongo.db.countries.find().sort("country", 1)
     return render_template("edit_track.html",
                            track=track,
                            genres=genres,
@@ -130,7 +130,7 @@ def style_page(genre_style):
 
 @app.route('/get_moods')
 def get_moods():
-    moods = mongo.db.moods.find().sort("mood", 1)
+    moods = mongo.db.moods.find()
     return render_template("moods.html", moods=moods)
 
 
@@ -182,7 +182,7 @@ def year_page(lower_year, upper_year):
 
 @app.route('/get_country')
 def get_country():
-    countries = mongo.db.countries.find()
+    countries = mongo.db.countries.find().sort("country", 1)
     return render_template("country.html", countries=countries)
 
 
@@ -196,7 +196,7 @@ def country_page(country_id, country_name):
 def add_track():
     genres = mongo.db.genre.find()
     moods = mongo.db.moods.find()
-    countries = mongo.db.countries.find()
+    countries = mongo.db.countries.find().sort("country", 1)
     return render_template("add_track.html", genres=genres, moods=moods, countries=countries)
 
 
