@@ -415,7 +415,7 @@ form label {
     background-color: var(--graphite);
     color: var(--main-bg);
     width: auto;
-    padding: 4px;
+    padding: 2px;
 }
 
 form input {

@@ -28,7 +28,7 @@
             </div>
             <div>
                 <div>
-                    <label for="set_lower_year">From year</label>
+                    <label for="set_lower_year">Year Range (low)</label>
                     <select id="set_lower_year" name="lower_year" required>
                         <option value="">-- select one --</option>
                         {% for y in range(2020, 1899, -1) %}
@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="set_upper_year">To year</label>
+                    <label for="set_upper_year">Year Range (high)</label>
                     <select id="set_upper_year" name="upper_year" required>
                         <option value="">-- select one --</option>
                         {% for y in range(2020, 1899, -1) %}
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div>
-                <label for="set_lower_limit">BPM Lower Limit (nearest value)</label>
+                <label for="set_lower_limit">BPM Range (low)</label>
                 <select id="set_lower_limit" name="bpm_lower_limit" required>
                     <option value="">-- select one --</option>
                     <option value="0">None</option>
@@ -57,7 +57,7 @@
                 </select>
             </div>
             <div>
-                <label for="set_upper_limit">BPM Upper Limit (nearest value, must be higher than value above)</label>
+                <label for="set_upper_limit">BPM Range (high)</label>
                 <select id="set_upper_limit" name="bpm_upper_limit" required>
                     <option value="">-- select one --</option>
                     <option value="0">None</option>
