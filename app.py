@@ -90,11 +90,11 @@ def update_track(track_id, artist_name):
                     'genre_name': request.form.get('genre_name').lower(),
                     'genre_style': request.form.get('genre_style').lower(),
                     'mood': request.form.get('mood').lower(),
-                    'year': request.form.get('year'),
+                    'year': int(request.form.get('year')),
                     'country': request.form.get('country'),
-                    'bpm': request.form.get('bpm'),
-                    'minutes': request.form.get('minutes'),
-                    'seconds': request.form.get('seconds')
+                    'bpm': int(request.form.get('bpm')),
+                    'minutes': int(request.form.get('minutes')),
+                    'seconds': int(request.form.get('seconds'))
                     })
 
     return redirect(url_for('artist_page', artist_id=artist_id, artist_name=artist_name))
@@ -206,7 +206,13 @@ def insert_track():
     unique_artists = artists.distinct("artist_name")
     tracks = mongo.db.tracks
     dict_form = request.form.to_dict()
+    dict_form["year"] = int(dict_form["year"])
+    dict_form["bpm"] = int(dict_form["bpm"])
+    dict_form["minutes"] = int(dict_form["minutes"])
+    dict_form["seconds"] = int(dict_form["seconds"])
+    print(dict_form)
     dict_form_lower = lower_dict_attr(dict_form)
+    print(dict_form_lower)
     _trkid = tracks.insert_one(dict_form_lower)
     track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
 
