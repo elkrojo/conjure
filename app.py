@@ -253,8 +253,8 @@ def your_playlist(genre, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit
     tracks = mongo.db.tracks.aggregate([
                                        {"$match": {"genre_name": genre,
                                                    "mood": mood,
-                                                   "year": {"$gt": low_year, "$lt": upr_year},
-                                                   "bpm": {"$gt": low_bpm, "$lt": upr_bpm}}},
+                                                   "year": {"$gte": int(low_year), "$lte": int(upr_year)},
+                                                   "bpm": {"$gte": int(low_bpm), "$lte": int(upr_bpm)}}},
 
                                        {"$sample": {"size": int(track_limit)}}
                                        ])
