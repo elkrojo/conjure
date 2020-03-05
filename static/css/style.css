@@ -254,7 +254,7 @@ ul li a:hover {
 }
 
 #artist-box a:hover {
-    background-color: var(--graphite-lite);
+    background-color: var(--glow-lite);
     color: var(--graphite);
     font-weight: 400;
 }
@@ -372,7 +372,7 @@ ul li a:hover {
 }
 
 .selection-box a:hover {
-    background-color: var(--graphite-lite);
+    background-color: var(--glow-lite);
 }
 
 .selection-item-content {
