@@ -156,7 +156,7 @@ def search_bpm():
 
 @app.route('/bpm_page/<lower_limit>/<upper_limit>')
 def bpm_page(lower_limit, upper_limit):
-    tracks = mongo.db.tracks.find({"bpm": {"$gt": lower_limit, "$lt": upper_limit}})
+    tracks = mongo.db.tracks.find({"bpm": {"$gt": int(lower_limit)-1, "$lt": int(upper_limit)+1}}).sort("bpm", 1)
     print(tracks)
     return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
@@ -176,7 +176,7 @@ def search_year():
 
 @app.route('/year_page/<lower_year>/<upper_year>')
 def year_page(lower_year, upper_year):
-    tracks = mongo.db.tracks.find({"year": {"$gt": lower_year, "$lt": upper_year}})
+    tracks = mongo.db.tracks.find({"year": {"$gt": int(lower_year), "$lt": int(upper_year)}})
     return render_template("year_page.html", lower_year=lower_year, upper_year=upper_year, tracks=tracks)
 
 
@@ -210,9 +210,7 @@ def insert_track():
     dict_form["bpm"] = int(dict_form["bpm"])
     dict_form["minutes"] = int(dict_form["minutes"])
     dict_form["seconds"] = int(dict_form["seconds"])
-    print(dict_form)
     dict_form_lower = lower_dict_attr(dict_form)
-    print(dict_form_lower)
     _trkid = tracks.insert_one(dict_form_lower)
     track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
 
