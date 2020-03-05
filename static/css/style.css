@@ -3,10 +3,17 @@
     --graphite-dark: #1a1a1a;
     --graphite: #292929;
     --graphite-lite: #cbccd0;
+    --glow-lite: #d9cdba;
     --warm-yellow: #f8a30a;
-    --calm-green: #a6d47f;
+    --logo-yellow: #ffc763;
+    --logo-green: #a6d47f;
     --deep-blue: #004152;
+    --logo-blue: #639bff;
     --magenta: #ff005a;
+    --logo-pink: #d47fa6;
+    --logo-aqua: #7fd4ad;
+    --logo-purple: #ad7fd4;
+    --logo-sand: #d4ad7f;
 }
 
 html {
@@ -71,24 +78,61 @@ ul li a:hover {
     color: var(--graphite-lite);
 }
 
+#logo a h1 span {
+    transition: 0.5s;
+}
+
+#logo a:hover #logo-c {
+    color: var(--logo-yellow);
+    transition-delay: 0.4s;
+}
+
+#logo a:hover #logo-o {
+    color: var(--logo-green);
+    transition-delay: 0.8s;
+}
+
+#logo a:hover #logo-n {
+    color: var(--logo-pink);
+    transition-delay: 1.2s;
+}
+
+#logo a:hover #logo-j {
+    color: var(--logo-blue);
+    transition-delay: 1.6s;
+}
+
+#logo a:hover #logo-u {
+    color: var(--logo-aqua);
+    transition-delay: 2s;
+}
+
+#logo a:hover #logo-r {
+    color: var(--logo-sand);
+    transition-delay: 2.4s;
+}
+
+#logo a:hover #logo-e {
+    color: var(--logo-purple);
+    transition-delay: 2.8s;
+}
+
 #logo a h1 {
     margin-top: 8px;
     font-weight: 300;
-    letter-spacing: 26px;
+    letter-spacing: 10px;
 }
 
-/* Search bar */
-.search-container {
-    position: absolute;
-    right: 0;
-}
-
-#search {
-    padding-left: 3px;
-}
-
-#search:focus {
-    outline: var(--graphite-lite) auto 1px;
+/* Footer */
+#footer {
+    width: 100%;
+    height: 80px;
+    line-height: 60px;
+    background-color: var(--graphite);
+    color: var(--main-bg);
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 /* Main content */
@@ -117,10 +161,10 @@ ul li a:hover {
 }
 
 .menu-item:hover {
-    background-color: var(--graphite-lite);
+    background-color: var(--glow-lite);
     color: var(--graphite-dark);
     transition: ease-in-out 0.2s;
-    border: 1px solid var(--graphite-dark);
+    border: 1px solid var(--graphite);
 }
 
 .menu-item a {
@@ -189,7 +233,7 @@ ul li a:hover {
 
 #artist-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     grid-gap: 10px;
 }
 
@@ -276,11 +320,12 @@ ul li a:hover {
     background-color: #e4e4e4;
     padding: 4px 0;
     line-height: 32px;
+    border-bottom: 1px solid var(--main-bg);
 }
 
-.track-table tr:nth-child(odd) {
+/* .track-table tr:nth-child(odd) {
     background-color: var(--graphite-lite);
-}
+} */
 
 .track-table th {
     background-color: var(--graphite);
@@ -351,8 +396,8 @@ form div {
 
 form label {
     display: block;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.1em;
-    font-weight: 300;
     background-color: var(--graphite);
     color: var(--graphite-lite);
     width: 100%;
