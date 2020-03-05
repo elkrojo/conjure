@@ -33,3 +33,18 @@ We continually tweak and adjust this template to help give you the best experien
 --------
 
 Happy coding!
+
+
+https://www.htmlgoodies.com/beyond/css/css-ref/building-responsive-web-page-headers.html
+
+https://www.w3schools.com/howto/howto_css_responsive_form.asp
+
+https://sites.tufts.edu/eeseniordesignhandbook/2015/music-mood-classification/
+
+https://www.color-hex.com/
+
+https://stackoverflow.com/questions/27416296/how-to-push-a-csv-data-to-mongodb-using-python
+
+https://stackoverflow.com/questions/19898283/folder-and-files-upload-with-flask
+
+https://www.quora.com/How-can-I-import-a-CSV-file-data-to-MongoDB-using-Python-Flask?share=1
