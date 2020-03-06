@@ -14,7 +14,7 @@
     --logo-aqua: #7fd4ad;
     --logo-purple: #ad7fd4;
     --logo-sand: #d4ad7f;
-    --warning: #ff3030;
+    --warning: #ff6e6e;
     --warning-highlight: #ff1a1a;
 }
 
@@ -509,19 +509,24 @@ button:hover {
 }
 
 .update-track-button {
-    width: 150px;
+    width: 100%;
 }
 
 .delete-track-button {
-    width: 150px;
+    width: 100%;
     /* display: inline-block; */
     background-color: var(--warning);
     float: right;
+    margin: 50px 0 10px 0;
+    height: 38px;
 }
 
 .delete-track-button:hover {
     background-color: var(--warning-highlight);
     color: var(--graphite-lite);
+}
+
+#delete-button {
 }
 
 .range-box {
@@ -638,6 +643,11 @@ button:hover {
     form select {
         width: 100%;
     }
+
+    .search-button {
+        position: relative;
+        margin-top: 60px;
+    }
 }
 
 
@@ -706,7 +716,19 @@ button:hover {
         width: 100%;
     }
 
+    .range-box {
+        width: 128px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
     .search-button {
-        width: 308px;
+        width: 100%;
+    }
+
+    .add-track-button {
+        width: 100%;
     }
 }
