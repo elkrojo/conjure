@@ -438,6 +438,29 @@ form select {
     border: none;
 }
 
+button {
+    height: auto;
+}
+
+.range-header {
+    width: 50%;
+}
+
+.range-header h1 {
+    text-align: center;
+    padding-left: 0;
+}
+
+.range-select {
+    margin-top: 10px;
+}
+
+.range-box {
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+
 
 /* Media Queries */
 @media (max-width: 850px) {
@@ -539,6 +562,10 @@ form select {
 
 
 @media (max-width: 510px) {
+    .container {
+        width: 100%;
+    }
+
     #header {
         text-align: center;
     }
@@ -555,6 +582,10 @@ form select {
         margin-top: 0;
     }
 
+    .menu-container {
+        margin: 0 10px;
+    }
+
     .menu-item {
         font-size: 0.67em;
     }
@@ -565,7 +596,7 @@ form select {
 
     .index-letter {
         font-size: 1.6em;
-        margin: 3px 8px;
+        margin: 3px 7px;
     }
 
     .artist-header h1 {
@@ -574,7 +605,15 @@ form select {
 
     .track-table {
         margin-top: 1em;
+        font-size: 1em;
     }
+
+    .track-table tr th:last-child,
+    .track-table tr td:last-child {
+        display: none;
+    }
+
+
 
     .selection-item-content {
         height: 60px;
