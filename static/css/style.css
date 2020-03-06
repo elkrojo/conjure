@@ -486,7 +486,9 @@ button:hover {
 
 .search-button h1,
 .add-track-button h1,
-.gen-playlist-button h1 {
+.gen-playlist-button h1,
+.update-track-button h1,
+.delete-track-button h1 {
     font-size: 2em;
     font-weight: 300;
     text-align: center;
@@ -494,7 +496,9 @@ button:hover {
 }
 
 .add-track-button,
-.gen-playlist-button {
+.gen-playlist-button,
+.update-track-button,
+.delete-track-button {
     width: 380px;
 }
 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-    <div class="form-container">
-        <form action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist_name) }}" method="POST">
+    <div class="search-container">
+        <form id="update-track-form" action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist_name) }}" method="POST">
             <div>
                 <label for="artist_name">Artist</label>
                 <input id="artist_name" name="artist_name" type="text" value="{{ track.artist_name.title() }}" required>
@@ -92,17 +92,20 @@
                     {% endfor %}
                 </select>
             </div>
-            <div id="time-field">
-                <label for="edit_minutes">Minutes</label>
-                <input id="edit_minutes" name="minutes" type="number" min="0" max="120" value="{{track.minutes}}" required>
-                <label for="edit_seconds">Seconds</label>
-                <input id="edit_seconds" name="seconds" type="number" min="0" max="59" value="{{track.seconds}}" required>
+            <div>
+                <div class="range-box">
+                    <label for="edit_minutes">Minutes</label>
+                    <input id="edit_minutes" name="minutes" type="number" min="0" max="120" value="{{track.minutes}}" required>
+                </div>
+                <div class="range-box range-box-right">
+                    <label for="edit_seconds">Seconds</label>
+                    <input id="edit_seconds" name="seconds" type="number" min="0" max="59" value="{{track.seconds}}" required>
+                </div>
             </div>
-            <button type="submit" name="action">Update
-            </button>
         </form>
-    </div>
-    <a href="{{ url_for('delete_track', track_id=track._id, artist_name=track.artist_name) }}">
-        <button>Delete <i class="fas fa-times"></i></button>
+        <button class="update-track-button" form="update-track-form" type="submit" name="action"><h1><i class="fas fa-sync-alt"></i></h1></button>
+        <a href="{{ url_for('delete_track', track_id=track._id, artist_name=track.artist_name) }}">
+        <button class="delete-track-button"><h1><i class="fas fa-times"></i></h1></button>
     </a>
+    </div>
 {% endblock %}
