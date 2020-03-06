@@ -182,7 +182,7 @@ ul li a:hover {
 
 /* Right Container */
 .right-container {
-    margin: 0 16px 0 0;
+    /* margin: 0 16px 0 0; */
     position: relative;
     width: 100%;
     text-align: center;
@@ -273,6 +273,10 @@ ul li a:hover {
 } */
 
 /* Track table */
+.right-wide {
+    margin-left: 20px;
+}
+
 .artist-header {
     box-shadow: 0 8px 6px -6px var(--graphite);
     /* border: 1px solid var(--graphite-dark); */
@@ -313,6 +317,7 @@ ul li a:hover {
 .track-table {
     margin-top: 1.3em;
     box-shadow: 0 8px 6px -6px var(--graphite);
+    text-align: left;
 }
 
 .track-table table {
@@ -472,14 +477,14 @@ button:hover {
     margin-top: 10px;
 }
 
-#year-search-button {
+.search-button {
     width: 380px;
     /* margin-top: 50px; */
     position: absolute;
     bottom: 0;
 }
 
-#year-search-button h1 {
+.search-button h1 {
     font-size: 2em;
     font-weight: 300;
     text-align: center;
@@ -495,7 +500,7 @@ button:hover {
     text-align: center;
 }
 
-#range-box-right {
+.range-box-right {
     float: right;
 }
 
@@ -553,6 +558,10 @@ button:hover {
 
     #artist-box a {
         height: 40px;
+    }
+
+    .right-wide {
+    margin-left: 0;
     }
 
     .artist-header {
@@ -664,7 +673,7 @@ button:hover {
         width: 100%;
     }
 
-    #year-search-button {
+    .search-button {
         width: 308px;
     }
 }

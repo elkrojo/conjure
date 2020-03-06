@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+<div class="right-wide">
 	<div class="selection-box">
         {% for genre in genres %}
             <a href="{{ url_for('genre_page', genre_id=genre._id, genre_name=genre.genre_name) }}">
@@ -8,4 +9,5 @@
             </a>  
         {% endfor %}
     </div>
+</div>
 {% endblock %}

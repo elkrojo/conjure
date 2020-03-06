@@ -13,7 +13,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div id="range-box-right" class="range-box">
+            <div class="range-box range-box-right">
                 <label for="upper_year">Upper Limit</label>
                 <select id="upper_year" name="upper_year" required>
                     <option value="">-- select one --</option>
@@ -23,7 +23,7 @@
                 </select>
             </div>
         </form>
-        <button id="year-search-button" form="year-select-form" type="submit" name="action"><h1><i class="fas fa-search"></i></h1></button>
+        <button class="search-button" form="year-select-form" type="submit" name="action"><h1><i class="fas fa-search"></i></h1></button>
     </div>
 
 {% endblock %}
