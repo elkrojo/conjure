@@ -14,6 +14,8 @@
     --logo-aqua: #7fd4ad;
     --logo-purple: #ad7fd4;
     --logo-sand: #d4ad7f;
+    --warning: #ff3030;
+    --warning-highlight: #ff1a1a;
 }
 
 html {
@@ -405,6 +407,10 @@ ul li a:hover {
     margin: 0 auto;
 }
 
+.search-container a {
+    text-decoration: none;
+}
+
 .form-container {
     text-align: center;
 }
@@ -502,8 +508,24 @@ button:hover {
     width: 380px;
 }
 
+.update-track-button {
+    width: 150px;
+}
+
+.delete-track-button {
+    width: 150px;
+    /* display: inline-block; */
+    background-color: var(--warning);
+    float: right;
+}
+
+.delete-track-button:hover {
+    background-color: var(--warning-highlight);
+    color: var(--graphite-lite);
+}
+
 .range-box {
-    width: auto;
+    width: 150px;
     float: left;
 }
 
