@@ -26,7 +26,6 @@ body {
     background-position: center center;
     background-size: cover;
     color: var(--graphite);
-    /* font-family: 'M PLUS 1p', sans-serif; */
     font-family: 'Nunito', sans-serif;
     min-height: 100vh;
     margin: 0;
@@ -145,19 +144,19 @@ ul li a:hover {
 
 /* Left container */
 .menu-container a {
+    display: block;
     text-decoration: none;
     color: var(--graphite);
+}
+
+.menu-container a:not(:last-child) {
+    margin-bottom: 4px;
 }
 
 .menu-item {
     background-color: var(--main-bg);
     border: 1px solid transparent;
     padding-left: 12px;
-    margin-bottom: 4px;
-}
-
-.menu-item:not(:last-child) {
-    
 }
 
 .menu-item:hover {
@@ -183,8 +182,10 @@ ul li a:hover {
 
 /* Right Container */
 .right-container {
-    margin: 0 16px 0 32px;
-    
+    margin: 0 16px 0 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
 }
 
 /* .right-container h1 {
@@ -394,6 +395,11 @@ ul li a:hover {
     font-weight: 400;
 }
 
+.search-container {
+    display: inline-block;
+    margin: 0 auto;
+}
+
 .form-container {
     text-align: center;
 }
@@ -439,11 +445,22 @@ form select {
 }
 
 button {
-    height: auto;
+    background-color: var(--graphite);
+    color: var(--graphite-lite);
+    display: block;
+    height: 76px;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--glow-lite);
+    color: var(--graphite);
 }
 
 .range-header {
-    width: 50%;
+    width: auto;
 }
 
 .range-header h1 {
@@ -455,10 +472,31 @@ button {
     margin-top: 10px;
 }
 
+#year-search-button {
+    width: 380px;
+    /* margin-top: 50px; */
+    position: absolute;
+    bottom: 0;
+}
+
+#year-search-button h1 {
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 0;
+}
+
 .range-box {
     width: auto;
     float: left;
-    margin-right: 10px;
+}
+
+.range-box label {
+    text-align: center;
+}
+
+#range-box-right {
+    float: right;
 }
 
 
@@ -608,12 +646,10 @@ button {
         font-size: 1em;
     }
 
-    .track-table tr th:last-child,
+    /* .track-table tr th:last-child,
     .track-table tr td:last-child {
         display: none;
-    }
-
-
+    } */
 
     .selection-item-content {
         height: 60px;
@@ -621,10 +657,14 @@ button {
     }
 
     form {
-        width: 100%;
+        width: 94%;
     }
 
     form select {
         width: 100%;
+    }
+
+    #year-search-button {
+        width: 308px;
     }
 }

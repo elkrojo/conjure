@@ -1,26 +1,29 @@
 {% extends 'base.html' %} {% block content %}
-    <div class="artist-header range-header">
-        <h1>Select a range</h1>
+    <div class="search-container">
+        <div class="artist-header range-header">
+            <h1>Year Range</h1>
+        </div>
+        <form id="year-select-form" class="range-select" action="{{ url_for('search_year') }}" method="POST">
+            <div class="range-box">
+                <label for="lower_year">Lower Limit</label>
+                <select id="lower_year" name="lower_year" required>
+                    <option value="">-- select one --</option>
+                    {% for y in range(2020, 1899, -1) %}
+                        <option value="{{y}}">{{y}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="range-box-right" class="range-box">
+                <label for="upper_year">Upper Limit</label>
+                <select id="upper_year" name="upper_year" required>
+                    <option value="">-- select one --</option>
+                    {% for y in range(2020, 1899, -1) %}
+                        <option value="{{y}}">{{y}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+        <button id="year-search-button" form="year-select-form" type="submit" name="action"><h1><i class="fas fa-search"></i></h1></button>
     </div>
-    <form class="range-select" action="{{ url_for('search_year') }}" method="POST">
-        <div class="range-box">
-            <label for="lower_year">Lower Limit</label>
-            <select id="lower_year" name="lower_year" required>
-                <option value="">-- select one --</option>
-                {% for y in range(2020, 1899, -1) %}
-                    <option value="{{y}}">{{y}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="range-box">
-            <label for="upper_year">Upper Limit</label>
-            <select id="upper_year" name="upper_year" required>
-                <option value="">-- select one --</option>
-                {% for y in range(2020, 1899, -1) %}
-                    <option value="{{y}}">{{y}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit" name="action">Search</button>
-    </form>
+
 {% endblock %}
