@@ -484,11 +484,18 @@ button:hover {
     bottom: 0;
 }
 
-.search-button h1 {
+.search-button h1,
+.add-track-button h1,
+.gen-playlist-button h1 {
     font-size: 2em;
     font-weight: 300;
     text-align: center;
     margin-bottom: 0;
+}
+
+.add-track-button,
+.gen-playlist-button {
+    width: 380px;
 }
 
 .range-box {

@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-    <div class="form-container">
-        <form action="{{ url_for('insert_track') }}" method="POST">
+    <div class="search-container">
+        <form id="insert-track-form" action="{{ url_for('insert_track') }}" method="POST">
             <div>
                 <label for="artist_name">Artist</label>
                 <input id="artist_name" name="artist_name" type="text" placeholder="Artist" required>
@@ -66,14 +66,17 @@
                 </select>
             </div>
             <div>
-                <label for="add_minutes">Minutes</label>
-                <input id="add_minutes" name="minutes" type="number" required>
-                <label for="add_seconds">Seconds</label>
-                <input id="add_seconds" name="seconds" type="number" min="0" max="59" required>
+                <div class="range-box">
+                    <label for="add_minutes">Minutes</label>
+                    <input id="add_minutes" name="minutes" type="number" required>
+                </div>
+                <div class="range-box range-box-right">
+                    <label for="add_seconds">Seconds</label>
+                    <input id="add_seconds" name="seconds" type="number" min="0" max="59" required>
+                </div>
             </div>
-            <button type="submit" name="action">Insert
-            </button>
         </form>
+        <button class="add-track-button" form="insert-track-form" type="submit" name="action"><h1><i class="fas fa-plus"></i></h1></button>
     </div>
 
 {% endblock %}
