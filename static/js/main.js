@@ -58,7 +58,7 @@ $(document).ready(function() {
                                                             <option value='soft rock'>Soft Rock</option>
                                                             <option value='easy listening'>Easy Listening</option>`);
         }
-        else if (val == "funk / soul") {
+        else if (val == "funk | soul") {
             $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
                                                             <option value='soul'>Soul</option>
                                                             <option value='disco'>Disco</option>
@@ -67,7 +67,7 @@ $(document).ready(function() {
                                                             <option value='pop rock'>Pop Rock</option>
                                                             <option value='synth-pop'>Synth Pop</option>
                                                             <option value='jazz-funk'>Jazz-Funk</option>
-                                                            <option value='rnb / swing'>RnB / Swing</option>
+                                                            <option value='rnb | swing'>RnB / Swing</option>
                                                             <option value='ballad'>Ballad</option>
                                                             <option value='vocal'>Vocal</option>`);
         }
@@ -99,7 +99,7 @@ $(document).ready(function() {
         }
         else if (val == "hip hop") {
             $('#add_genre_style, #edit_genre_style, #set_genre_style').html(` <option value="">-- select one --</option>
-                                                            <option value='rnb / swing'>RnB / Swing</option>
+                                                            <option value='rnb | swing'>RnB / Swing</option>
                                                             <option value='pop rap'>Pop Rap</option>
                                                             <option value='house'>House</option>
                                                             <option value='gangsta'>Gangsta</option>
@@ -172,7 +172,7 @@ $(document).ready(function() {
                                                             <option value='country blues'>Country Blues</option>
                                                             <option value='chicago blues'>Chicago Blues</option>
                                                             <option value='pop rock'>Pop Rock</option>
-                                                            <option value='classic_rock'>Classic Rock</option>
+                                                            <option value='classic rock'>Classic Rock</option>
                                                             <option value='psychedelic rock'>Psychedelic Rock</option>`);
         }
     });
