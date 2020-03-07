@@ -110,6 +110,10 @@ The JQuery function that sets the genre style list can be found at file path:
 
 **Multiple Track Upload** - would allow users to upload a large number of tracks at once using a csv file template.     
 
+**More Countries** - would allow the user to select any country in the world.       
+
+**More Styles** - would allow theuser to customise the list of styles available relevant to their personal record collection.       
+
 ## Technologies Used
 [Python3](https://www.python.org/) - The project uses **Python3** to build the website routes and process the data.       
 
@@ -127,35 +131,57 @@ The JQuery function that sets the genre style list can be found at file path:
 
 
 ## Testing
-The user story scenarios were adressed effectively, where information relative to the selected marker was presented clearly and cleanly. 
-The map section alerts the user to their current location, while providing them with clickable options in the form of map markers. 
-The page elements will resize and reflow when the screen size is reduced or increased.        
+The user story scenarios were adressed effectively, where tracks can be added, filtered, read, updated and deleted according to the user's requirements. 
+The main menu section gives the users clear options, which invites interactivity to filter track results. 
+The page sections will resize and reflow when the screen size is reduced or increased.      
 
-**Welcome Modal:**
-1. Click on the "Find my location" button and verify that the map updates with markers located nearby.   
+**Main Menu:**
+1. Click on all menu items and verify that the page updates to show the relevant filtering options.     
 
-**Map:**
-1. Try to resize the browser window on a desktop device, verify that the map aligns with the text content below when the window width exceeds 768 pixels.       
+**Artist List:**
+1. Click on an index letter and verify that the artist list updates to show only artists beginning with that letter.
+2. If there are no results found, verify that the page updates to show a message to communicate this information.  
+3. Click on an artist tile and verify that the page updates to show the relevant artist page with header at the top and tracklist below.        
 
-**Map Markers:**
-1. Try to refresh the page, verify that the map markers are set relative to your current location.
-2. Try to click on a marker cluster, verify that the map zooms in on the cluster and shows the independant markers within.
-3. Click on a map marker and verify that the "Place of interest" and "Overview" sections are updated for each marker clicked.
+**Artist Page:**
+1. Click on the edit track icon in the track table and verify that the page updates to show the track information with update and delete options at the bottom.
 
-**Accordion:**
-1. Try selecting a map marker without history content, verify that the appropriate button message is displayed and the button is made inactive.
-2. Try selecting a map marker with history content, verify that the appropriate button message is updated with the relevant suggested action, and the button is made active.
-3. Try to access the history paragraphs by clicking on the "Tap here to show history" message, verify that the accordion expands, the history is displayed, 
-    and the button message is updated with the relevant suggested action.
-4. Try to close the history paragraphs by clicking on the "Hide history" message, verify that the accordion retracts, the history is hidden, 
-    and the button message is updated with the relevant suggested action.
-5. Try to access a new location by clicking on a map marker while the accordion is open, verify that the accordion remains open between locations, 
-    the page content is updated correctly, and the button message remains relative to the current accordion state.
+**Edit Track Form:**
+1. Try to change the track details and click update. Verify that the page updates to show you the relevant artists track table.
+2. Try to select a different genre. Verify that the style list updates to show the styles relevant to each genre selected.
+3. try to omit a form field and update entry. Verify that the browser alerts you to the missing details and does not allow you to submit an update without completing all fields.
 
-**Responsive Footer:**
-1. Try to scroll through a history section which extends at least 500 pixels beyond the viewport height, verify that the footer slides up from the bottom 
-    and displays the relevant suggested action.
-2. Try to return to the top of the page by clicking the footer, verify that the page scrolls to the top and the footer slides back down to a hidden position.
+**Genre Filter:**
+1. Click on a broad genre category and verify that the page updates to show the genre style options within that category.
+2. Click on a genre style option and verify that a track table is generated showing only tracks in that genre style group. 
+3. If there are no results found, verify that the page updates to show a message to communicate this information. 
+
+**Mood Filter:**
+1. Click on a mood option. Verify that the page updates to show tracks in the relevant mood category.
+2. If there are no results found, verify that the page updates to show a message to communicate this information. 
+
+**BPM Filter & Year Filter:**
+1. Select a lower range limit, an upper range limit and click the search button. Verify that the page updates to show a track table with tracks within that range.
+2. If there are no results found, verify that the page updates to show a message to communicate this information.
+
+**Country Filter:**
+1. Click on a country option. Verify that th epage updates to show a track table populated with tracks relevant to teh country selected.
+2. If there are no results found, verify that the page updates to show a message to communicate this information. 
+
+**Add Track:**
+1. Try to enter a new track into the database by filling all fields and clicking insert track. Verify that the page updates to show you the artist page relevant to the artist you entered. 
+2. Try to select a different genre. Verify that the style list updates to show the styles relevant to each genre selected.
+3. Try omitting a form field and inserting a track. Verify that the browser alerts you to the missing details and does not allow you to insert a track without completing all fields.
+4. If the artist was not already in the database, verify that the artist list is updated to show the new artist.
+
+**Conjure Playlist:**
+1. Try to generate a playlist by filling in all form fields and clicking on "Conjure a playlist" button. Verify that the page updates to display a track table showing only tracks within the parameters selected.
+2. Try to enter a different genre. Verify that the style list updates to show the styles relevant to each genre selected.
+3. Try omitting a form field and generating a playlist. Verify that the browser alerts you to the missing details and does not allow you to generate a playlist without completing all fields.
+4. Try to select a different number of tracks. Verify that the tracklist shows no more than the track limit.
+5. Try generating multiple playlists with the exact same parameters. Verify the results are not always identical.
+6. If there are no results found, verify that the page updates to show a message to communicate this information.
+
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.        
 
