@@ -1,22 +1,7 @@
-// Images for rotation
-var bgImages = ['hifi_01.jpeg', 'ttable_bw_01.jpg', 'ttable_bw_green_01.jpeg', 'ttable_bw_red_01.jpeg',
-                'vinyl_grooves_01.jpg', 'vinyl_stack_01.jpeg', 'vinyl_stack_02.jpg']
-
-// var bgRandNum = Math.floor((Math.random() * bgImages.length));
-
-var d = new Date();
-var t = d.getTime();
-var days = Math.floor(t / (1000 * 60 * 60 * 24));
-
-// Select image per day
-var rotator = days % bgImages.length;
-var bgImage = 'url(static/images/background/' + bgImages[rotator] + ')';
-
 
 // Page load functions
 $(document).ready(function() {
-    // $('body').css({'background-image': bgImage});
-
+    
     $('#add_genre_name, #edit_genre_name, #set_genre_name').change(function() {
         var val = $(this).val();
         if (val == "rock") {
