@@ -20,6 +20,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/nothing_here')
+def nothing_here():
+    return render_template("nothing_here.html")
+
+
 @app.route('/about')
 def about():
     return render_template("about.html")
@@ -33,7 +38,18 @@ def contact():
 @app.route('/get_artists')
 def get_artists():
     artists = mongo.db.artists.find().sort("artist_name", 1)
+    unique_artists = artists.distinct("artist_name")
+    tracks = mongo.db.tracks.find()
+    track_artists = tracks.distinct("artist_name")
+
+    # Remove artists with zero tracks from database
+    for name in unique_artists:
+        if name not in track_artists:
+            mongo.db.artists.remove({"artist_name": name})
+
+    # Generate alphabet for index roll
     letters = string.ascii_uppercase[:26]
+
     return render_template("artists.html", letters=letters, artists=artists)
 
 
@@ -41,7 +57,10 @@ def get_artists():
 def filter_artist(letter):
     artists = mongo.db.artists.find({"artist_name": {"$regex": "^" + letter.lower()}})
     letters = string.ascii_uppercase[:26]
-    return render_template("artists.html", letters=letters, artists=artists)
+    if not artists.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("artists.html", letters=letters, artists=artists)
 
 
 @app.route('/artist_page/<artist_id>/<artist_name>')
@@ -126,7 +145,10 @@ def genre_page(genre_id, genre_name):
 @app.route('/style_page/<genre_style>')
 def style_page(genre_style):
     tracks = mongo.db.tracks.find({"genre_style": genre_style})
-    return render_template("style_page.html", tracks=tracks, genre_style=genre_style)
+    if not tracks.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("style_page.html", tracks=tracks, genre_style=genre_style)
 
 @app.route('/get_moods')
 def get_moods():
@@ -138,7 +160,10 @@ def get_moods():
 def mood_page(mood_id, mood_name):
     mood = mongo.db.moods.find_one({'_id': ObjectId(mood_id)})
     tracks = mongo.db.tracks.find({"mood": mood["mood"]})
-    return render_template("mood_page.html", tracks=tracks, mood_name=mood_name)
+    if not tracks.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("mood_page.html", tracks=tracks, mood_name=mood_name)
 
 
 @app.route('/get_bpm')
@@ -157,8 +182,10 @@ def search_bpm():
 @app.route('/bpm_page/<lower_limit>/<upper_limit>')
 def bpm_page(lower_limit, upper_limit):
     tracks = mongo.db.tracks.find({"bpm": {"$gte": int(lower_limit), "$lte": int(upper_limit)}}).sort("bpm", 1)
-    print(tracks)
-    return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
+    if not tracks.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("bpm_page.html", lower_limit=lower_limit, upper_limit=upper_limit, tracks=tracks)
 
 
 @app.route('/get_year')
@@ -177,7 +204,10 @@ def search_year():
 @app.route('/year_page/<lower_year>/<upper_year>')
 def year_page(lower_year, upper_year):
     tracks = mongo.db.tracks.find({"year": {"$gte": int(lower_year), "$lte": int(upper_year)}}).sort("year", 1)
-    return render_template("year_page.html", lower_year=lower_year, upper_year=upper_year, tracks=tracks)
+    if not tracks.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("year_page.html", lower_year=lower_year, upper_year=upper_year, tracks=tracks)
 
 
 @app.route('/get_country')
@@ -189,7 +219,10 @@ def get_country():
 @app.route('/country_page/<country_id>/<country_name>')
 def country_page(country_id, country_name):
     tracks = mongo.db.tracks.find({"country": country_name})
-    return render_template("country_page.html", country_name=country_name, tracks=tracks)
+    if not tracks.count():
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("country_page.html", country_name=country_name, tracks=tracks)
 
 
 @app.route('/add_track')
@@ -239,26 +272,47 @@ def set_playlist():
 def gen_playlist():
     dict_form = request.form.to_dict()
     genre = dict_form["genre"]
+    style = dict_form["style"]
     mood = dict_form["mood"]
     low_year = dict_form["lower_year"]
     upr_year = dict_form["upper_year"]
     low_bpm = dict_form["bpm_lower_limit"]
     upr_bpm = dict_form["bpm_upper_limit"]
     track_limit = dict_form["track_limit"]
-    return redirect(url_for('your_playlist', genre=genre, mood=mood, low_year=low_year, upr_year=upr_year, low_bpm=low_bpm, upr_bpm=upr_bpm, track_limit=track_limit))
+    return redirect(url_for('your_playlist', genre=genre, style=style, mood=mood, low_year=low_year, upr_year=upr_year, low_bpm=low_bpm, upr_bpm=upr_bpm, track_limit=track_limit))
 
 
-@app.route('/your_playlist/<genre>/<mood>/<low_year>/<upr_year>/<low_bpm>/<upr_bpm>/<track_limit>')
-def your_playlist(genre, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit):
-    tracks = mongo.db.tracks.aggregate([
+@app.route('/your_playlist/<genre>/<style>/<mood>/<low_year>/<upr_year>/<low_bpm>/<upr_bpm>/<track_limit>')
+def your_playlist(genre, style, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit):
+    tracks_count = mongo.db.tracks.aggregate([
                                        {"$match": {"genre_name": genre,
+                                                   "genre_style": style,
                                                    "mood": mood,
                                                    "year": {"$gte": int(low_year), "$lte": int(upr_year)},
-                                                   "bpm": {"$gte": int(low_bpm), "$lte": int(upr_bpm)}}},
+                                                   "bpm": {"$gte": int(low_bpm), "$lte": int(upr_bpm)}
+                                                   }
+                                        },
+
+                                       {"$group": {"_id": None, "count": {"$sum": 1}}}
+                                       ])
+
+    tracks = mongo.db.tracks.aggregate([
+                                       {"$match": {"genre_name": genre,
+                                                   "genre_style": style,
+                                                   "mood": mood,
+                                                   "year": {"$gte": int(low_year), "$lte": int(upr_year)},
+                                                   "bpm": {"$gte": int(low_bpm), "$lte": int(upr_bpm)}
+                                                   }
+                                        },
 
                                        {"$sample": {"size": int(track_limit)}}
                                        ])
-    return render_template("your_playlist.html", tracks=tracks)
+
+    tracklist = list(tracks_count)
+    if not tracklist:
+        return redirect(url_for('nothing_here'))
+    else:
+        return render_template("your_playlist.html", tracks=tracks)
 
 
 if __name__ == '__main__':
