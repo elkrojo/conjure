@@ -1,6 +1,5 @@
-# make dict values lowercase ignoring ints
+# Make dict values lowercase while ignoring ints
 def lower_dict_attr(d):
-    # new_dict = dict((k, v.lower()) for k, v in d.items())
     new_dict = {}
     for k, v in d.items():
         if type(v) != str:
