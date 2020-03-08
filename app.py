@@ -318,4 +318,4 @@ def your_playlist(genre, style, mood, low_year, upr_year, low_bpm, upr_bpm, trac
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)
