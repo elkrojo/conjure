@@ -636,7 +636,7 @@ button:hover {
     }
 
     form input {
-        padding-left: 0;
+        /* padding-left: 0; */
         border: none;
     }
 
