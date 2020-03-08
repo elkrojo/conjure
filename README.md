@@ -366,6 +366,8 @@ Special thanks to my project mentor, Aaron. His critical eye and accommodating m
 
 Thanks to all the music makers everywhere, past and present, without which this project idea would never have come to light.        
 
+All content is intended **for educational use only**.
+
 <br>
 
 [Back to Top](#table-of-contents)
