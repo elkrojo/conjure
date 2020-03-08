@@ -1,3 +1,4 @@
+/* Global */
 :root {
     --main-bg: #a9a9a9;
     --graphite-dark: #1a1a1a;
@@ -66,7 +67,6 @@ ul li a:hover {
     line-height: 60px;
     background-color: var(--graphite);
     color: var(--main-bg);
-    /* border-bottom: 1px solid var(--warm-yellow); */
     position: relative;
 }
 
@@ -124,18 +124,6 @@ ul li a:hover {
     letter-spacing: 10px;
 }
 
-/* Footer */
-/* #footer {
-    width: 100%;
-    height: 80px;
-    line-height: 60px;
-    background-color: var(--graphite);
-    color: var(--main-bg);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-} */
-
 /* Main content */
 .content-container {
     display: grid;
@@ -168,14 +156,6 @@ ul li a:hover {
     border: 1px solid var(--graphite);
 }
 
-.menu-item a {
-    
-}
-
-.menu-item a:hover {
-    
-}
-
 .menu-item h3 {
     margin: 0;
     padding: 4px 0;
@@ -184,15 +164,10 @@ ul li a:hover {
 
 /* Right Container */
 .right-container {
-    /* margin: 0 16px 0 0; */
     position: relative;
     width: 100%;
     text-align: center;
 }
-
-/* .right-container h1 {
-    text-align: center;
-} */
 
 .right-container h1 {
     text-align: left;
@@ -201,14 +176,6 @@ ul li a:hover {
     font-weight: 400;
     line-height: 80%;
 }
-
-/* .right-container ul {
-    color: var(--graphite);
-    list-style: none;
-    font-size: 1.2em;
-    padding: 0;
-    margin-left: 1.4em;
-} */
 
 #index-roll {
     margin-bottom: 16px;
@@ -262,18 +229,6 @@ ul li a:hover {
     font-weight: 400;
 }
 
-/* .artist-box-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--graphite);
-    color: var(--graphite-lite);
-    width: auto;
-    font-size: 1.2em;
-    font-weight: 400;
-    text-align: center;
-} */
-
 /* Track table */
 .right-wide {
     margin-left: 20px;
@@ -281,11 +236,8 @@ ul li a:hover {
 
 .artist-header {
     box-shadow: 0 8px 6px -6px var(--graphite);
-    /* border: 1px solid var(--graphite-dark); */
-    /* outline: 1px solid var(--graphite-dark); */
     overflow: hidden;
     background-color: var(--graphite);
-    /* display: inline-block; */
 }
 
 .artist-header h1 {
@@ -306,16 +258,9 @@ ul li a:hover {
     width: 100%;
     height: 168px;
     object-fit: cover;
-    /* padding-bottom: 0.33em; */
 }
 
-/* .artist-header img {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-} */
-
+/* Track Table */
 .track-table {
     margin-top: 1.3em;
     box-shadow: 0 8px 6px -6px var(--graphite);
@@ -333,10 +278,6 @@ ul li a:hover {
     line-height: 32px;
     border-bottom: 1px solid var(--main-bg);
 }
-
-/* .track-table tr:nth-child(odd) {
-    background-color: var(--graphite-lite);
-} */
 
 .track-table th {
     background-color: var(--graphite);
@@ -365,10 +306,10 @@ ul li a:hover {
     color: var(--graphite);
 }
 
+/* Sub Menu */
 .selection-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    /* grid-template-columns: 1fr 1fr 1fr; */
     grid-gap: 10px;
 }
 
@@ -411,6 +352,7 @@ ul li a:hover {
     text-decoration: none;
 }
 
+/* Forms */
 .form-container {
     text-align: center;
 }
@@ -418,7 +360,6 @@ ul li a:hover {
 form {
     display: inline-block;
     width: 380px;
-    /* background-color: var(--main-bg); */
 }
 
 form div {
@@ -485,7 +426,6 @@ button:hover {
 
 .search-button {
     width: 380px;
-    /* margin-top: 50px; */
     position: absolute;
     bottom: 0;
 }
@@ -514,7 +454,6 @@ button:hover {
 
 .delete-track-button {
     width: 100%;
-    /* display: inline-block; */
     background-color: var(--warning);
     float: right;
     margin: 50px 0 10px 0;
@@ -524,9 +463,6 @@ button:hover {
 .delete-track-button:hover {
     background-color: var(--warning-highlight);
     color: var(--graphite-lite);
-}
-
-#delete-button {
 }
 
 .range-box {
@@ -543,7 +479,9 @@ button:hover {
 }
 
 
-/* Media Queries */
+/* --- MEDIA QUERIES --- */
+
+/* Smaller Screens */
 @media (max-width: 850px) {
     .content-container {
         grid-template-columns: 1fr;
@@ -636,7 +574,6 @@ button:hover {
     }
 
     form input {
-        /* padding-left: 0; */
         border: none;
     }
 
@@ -650,7 +587,7 @@ button:hover {
     }
 }
 
-
+/* Mobile Devices */
 @media (max-width: 510px) {
     .container {
         width: 100%;
@@ -697,11 +634,6 @@ button:hover {
         margin-top: 1em;
         font-size: 1em;
     }
-
-    /* .track-table tr th:last-child,
-    .track-table tr td:last-child {
-        display: none;
-    } */
 
     .selection-item-content {
         height: 60px;

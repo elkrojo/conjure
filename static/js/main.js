@@ -2,6 +2,7 @@
 // Page load functions
 $(document).ready(function() {
     
+    // Genereate style options based on selected genre
     $('#add_genre_name, #edit_genre_name, #set_genre_name').change(function() {
         var val = $(this).val();
         if (val == "rock") {

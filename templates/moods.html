@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-<div class="right-wide">
-	<div class="selection-box">
-        {% for mood in moods %}
-            <a href="{{ url_for('mood_page', mood_id=mood._id, mood_name=mood.mood) }}">
-                <div class="selection-item-content">
-                    {{ mood.mood.title() }}
-                </div>
-            </a>  
-        {% endfor %}
+    <div class="right-wide">
+        <div class="selection-box">
+            {% for mood in moods %}
+                <a href="{{ url_for('mood_page', mood_id=mood._id, mood_name=mood.mood) }}">
+                    <div class="selection-item-content">
+                        {{ mood.mood.title() }}
+                    </div>
+                </a>  
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-<div class="right-wide">
-	<div class="selection-box">
-        {% for country in countries %}
-            <a href="{{ url_for('country_page', country_id=country._id, country_name=country.country) }}">
-                <div class="selection-item-content">
-                    {{ country.country.title() }}
-                </div>
-            </a>  
-        {% endfor %}
+    <div class="right-wide">
+        <div class="selection-box">
+            {% for country in countries %}
+                <a href="{{ url_for('country_page', country_id=country._id, country_name=country.country) }}">
+                    <div class="selection-item-content">
+                        {{ country.country.title() }}
+                    </div>
+                </a>  
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}

@@ -1,30 +1,30 @@
 {% extends 'base.html' %} {% block content %}
-<div class="search-container">
-    <div class="artist-header range-header">
-            <h1>BPM Range</h1>
+    <div class="search-container">
+        <div class="artist-header range-header">
+                <h1>BPM Range</h1>
+        </div>
+        <form id="bpm-select-form" class="range-select" action="{{ url_for('search_bpm') }}" method="POST">
+            <div class="range-box">
+                <label for="lower_limit">Lower Limit</label>
+                <select id="lower_limit" name="lower_limit" required>
+                    <option value="">-- select one --</option>
+                    <option value="0">None</option>
+                    {% for b in range(50, 201, 5) %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="range-box range-box-right">
+                <label for="upper_limit">Upper Limit</label>
+                <select id="upper_limit" name="upper_limit" required>
+                    <option value="">-- select one --</option>
+                    <option value="0">None</option>
+                    {% for b in range(50, 201, 5) %}
+                        <option value="{{b}}">{{b}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+        <button class="search-button" form="bpm-select-form" type="submit" name="action"><h1>Search&nbsp;&nbsp;<i class="fas fa-search"></i></h1></button>
     </div>
-    <form id="bpm-select-form" class="range-select" action="{{ url_for('search_bpm') }}" method="POST">
-        <div class="range-box">
-            <label for="lower_limit">Lower Limit</label>
-            <select id="lower_limit" name="lower_limit" required>
-                <option value="">-- select one --</option>
-                <option value="0">None</option>
-                {% for b in range(50, 201, 5) %}
-                    <option value="{{b}}">{{b}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="range-box range-box-right">
-            <label for="upper_limit">Upper Limit</label>
-            <select id="upper_limit" name="upper_limit" required>
-                 <option value="">-- select one --</option>
-                <option value="0">None</option>
-                {% for b in range(50, 201, 5) %}
-                    <option value="{{b}}">{{b}}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </form>
-    <button class="search-button" form="bpm-select-form" type="submit" name="action"><h1>Search&nbsp;&nbsp;<i class="fas fa-search"></i></h1></button>
-</div>
 {% endblock %}

@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-
     <div class="search-container">
         <form id="gen-playlist-form" action="{{url_for('gen_playlist')}}" method="POST">
             <div>
@@ -77,5 +76,4 @@
         </form>
         <button class="gen-playlist-button" form="gen-playlist-form" type="submit" name="action"><h1>Conjure a playlist&nbsp;&nbsp;<i class="fas fa-cogs"></i></h1></button>
     </div>
-
 {% endblock %}

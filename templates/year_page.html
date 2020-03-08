@@ -1,9 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-<div class="right-wide">
+    <div class="right-wide">
         <div class="artist-header">
             <h1>Year Range: {{ lower_year }} - {{ upper_year }}</h1>
         </div>
-
         <div class="track-table">
             <table>
                 <tr id="table-header">
@@ -23,5 +22,5 @@
                 {% endfor %}
             </table>
         </div>
-</div>
+    </div>
 {% endblock %}

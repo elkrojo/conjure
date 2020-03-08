@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-
     <div class="search-container">
         <form id="update-track-form" action="{{ url_for('update_track', track_id=track._id, artist_name=track.artist_name) }}" method="POST">
             <div>

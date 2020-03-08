@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-
     <div class="search-container">
         <form id="insert-track-form" action="{{ url_for('insert_track') }}" method="POST">
             <div>
@@ -78,5 +77,4 @@
         </form>
         <button class="add-track-button" form="insert-track-form" type="submit" name="action"><h1>Insert track&nbsp;&nbsp;<i class="fas fa-plus"></i></h1></button>
     </div>
-
 {% endblock %}
