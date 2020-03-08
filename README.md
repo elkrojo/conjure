@@ -362,7 +362,7 @@ This app has been developed using private keys to access the database. To run th
 The background image used throughout the site was obtained from wallpaperflare.
 
 ### Acknowledgements
-Special thanks to my project mentor, Aaron. His critical eye and accomodating manner have steered me clear of many rocks. Cheers, man!       
+Special thanks to my project mentor, Aaron. His critical eye and accommodating manner have steered me clear of many rocks. Cheers, man!       
 
 Thanks to all the music makers everywhere, past and present, without which this project idea would never have come to light.        
 
