@@ -8,11 +8,35 @@ If you are searching for a way to catalogue your collection of rare vinyl, look 
 
 Our search engine will do all the hard work, leaving you free to simply *enjoy the music...*
 
+<br>
+
+---
+
+## Table of Contents
+
+1. [Demo](#demo)
+2. [UX](#ux)
+3. [Features](#features)
+4. [Information Architecture](#information-architecture)
+5. [Technologies Used](#technologies-used)
+6. [Testing](#testing)
+7. [Deployment](#deployment)
+8. [Credits](#credits)
+
+<br>
+
+---
 
 ## Demo
 Clicking on the screen below will bring you to a live demo. Right click and select "Open link in new tab" to open the demo in a new browser tab.      
 
 [![Main](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/main_screen.png)](https://elkrojo.github.io/place-in-time/)
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## UX
 As a vinyl music lover, I would like to create a digital representation of my music collection. 
@@ -39,6 +63,12 @@ the user to easily focus on the relevant information being presented. All user o
 ### Surface
 The cool color palette was chosen to be soothing on the eye and allow for extended viewing periods. Menu options and hover effects are modelled on the physical backlit buttons found
 on vintage hifi and professional audio gear. The background image echoes the same tones found in the styling color palette.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Features
  
@@ -114,12 +144,79 @@ The JQuery function that sets the genre style list can be found at file path:
 
 **More Styles** - would allow theuser to customise the list of styles available relevant to their personal record collection.       
 
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
+
+## Information Architecture
+### Database
+[MongoDB](https://www.mongodb.com) - The database chosen for this project is **MongoDB**, a non-relational database.
+
+### Data Types
+**- ObjectId:**  &nbsp;&nbsp; A unique identifier for each inserted document in the database.       
+**- String:**  &nbsp;&nbsp; The MongoDB default datatype for fields within each document object.        
+**- Int32:**  &nbsp;&nbsp; The MongoDB default integer type.        
+
+### Data Structure
+**conjure.artists**
+| Key | Data Type |
+--- | ---
+_id | ObjectId
+image_path | String
+<br>
+
+**conjure.countries**
+| Key | Data Type |
+--- | ---
+_id | ObjectId
+country | String
+<br>
+
+**conjure.genre**
+| Key | Data Type |
+--- | ---
+_id | ObjectId
+genre_name | String
+genre_style | Array
+<br>
+
+**conjure.moods**
+| Key | Data Type |
+--- | ---
+_id | ObjectId
+mood | String
+<br>
+
+**conjure.tracks**
+| Key | Data Type |
+--- | ---
+_id | ObjectId
+artist_name | String
+track_name | String
+album_ep_name | String
+genre_name | String
+genre_style | String
+mood | String
+year | Int32
+country | String
+bpm | Int32
+minutes | Int32
+seconds | Int32
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
+
 ## Technologies Used
 [Python3](https://www.python.org/) - The project uses **Python3** to build the website routes and process the data.       
 
 [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The project uses **Flask** as the web application framework.     
 
-[PyMongo](https://api.mongodb.com/python/current/) - The project uses **PyMongo** to access and manipulate MongoDB.     
+[PyMongo](https://api.mongodb.com/python/current/) - The project uses the **PyMongo** python library to communicate with MongoDB.     
 
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - The project uses **JavaScript** to add dynamic functionality to the user experience.
 
@@ -129,6 +226,15 @@ The JQuery function that sets the genre style list can be found at file path:
 
 [JQuery](https://jquery.com) - The project uses **JQuery** to simplify DOM manipulation.       
 
+[GitHub](https://github.com) - The project uses **GitHub** as a version control repository.
+
+[Heroku](https://www.heroku.com) - The project uses  **Heroku** to host and serve the application.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Testing
 The user story scenarios were adressed effectively, where tracks can be added, filtered, read, updated and deleted according to the user's requirements. 
@@ -181,42 +287,62 @@ The page sections will resize and reflow when the screen size is reduced or incr
 4. Try to select a different number of tracks. Verify that the tracklist shows no more than the track limit.
 5. Try generating multiple playlists with the exact same parameters. Verify the results are not always identical.
 6. If there are no results found, verify that the page updates to show a message to communicate this information.
-
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.        
+      
 
 ### Browser Compatibility       
 
-The site was tested on multiple browsers (Chrome, Firefox, Safari) and on a few portable devices (iPhone 5s: Safari, iPad: Safari) to assess compatibility and responsiveness. 
+The site was tested on multiple browsers (Chrome, Firefox, Safari) and on a few portable devices (iPhone 5s: Safari, iPad: Safari) to assess compatibility and responsiveness.      
 
-**!Known Issues!**      
+<br>
 
-Sometimes the map markers are not loaded initially where the browser does not yet have permission to access the device location. Refreshing the page and clicking on the modal button "Find my location" will resolve this issue.       
+[Back to Top](#table-of-contents)
 
-While testing, I encountered an issue when trying to view the page in Firefox while the developer tools window is open. As a result, none of the dynamic page content is loaded. 
-Closing the developer tools window and refreshing the page causes the page to load as intended. This appears to be a known issue between Firefox developer tools and Google Maps JavaScript API, specifically.      
-
-While testing, users accessing the site via Chromium encountered an issue where the dynamic content was not loaded, and refreshing the page didn't work.
+---
 
 ## Deployment
 
-The site is hosted through GitHub pages and is synced to the master branch of the repository. 
-This means that the latest push to the master branch will update the live site automatically.       
+The site is hosted through Heroku and is synced to the master branch of the Git repository. 
+This means that the latest push to the heroku branch will update the live site automatically.       
 
 The process for initial deployment is as follows -      
-1. On the repository GitHub page, click the settings tab located on the far right of the menu.     
-2. Scroll down to the section titled GitHub Pages and select "master branch" as the source.        
-3. The site deploys once a source is selected and a url link is accessible below the GitHib Pages section title.       
+1. Log into Heroku dashboard and select "Create new app" from teh dropdown menu located on the top right.     
+2. Enter a name for the app, select a region where you would like your app to be hosted & click the "Create app" button.        
+3. In the app dashboard, click on settings. Under "Config Vars", click "Reveal Config Vars".
+4. Set the following according to your local variables:
+    | Var | Value |
+    --- | ---
+    IP | 0.0.0.0
+    PORT | 5000
+    [YOUR CONX VAR] | mongodb+srv://root:[YOUR PASSWORD]@myfirstcluster-t99h4.mongodb.net/[YOUR COLLECTION NAME]?retryWrites=true&w=majority
+    [YOUR DB VAR] | [YOUR COLLECTION NAME]
+5. In your local terminal: `$ heroku login -i`
+6. Once you are logged in, create a requirements file `$ pip3 freeze -- local > requirements.txt`
+7. Let heroku know your app location by making a Procfile `echo web: python app.py > Procfile`
+8. Back in the terminal, set your heroku app as a git remote `$ heroku git:remote -a <app_name>`
+9. Type `$ heroku ps:scale web=1` into the terminal.
+10. Go back to Heroku, and at `Settings` copy `https://<app_name>.herokuapp.com/` 
+11. Link your git master to the heroku remote `git remote add http://<app_name>.herokuapp.com/`
+12. Type `git push -u heroku master`
+13. Once the build is complete, go back to Heroku and click on `Open App`
+         
 
 To run the code in this project locally, you can clone the full contents of the repository. In your terminal, 
 navigate to the directory you want the repository located and enter the following command:
  
-    git clone https://github.com/elkrojo/place-in-time.git
+    git clone https://github.com/elkrojo/conjure.git
 
 Once cloned, you can remove all connection to the source repository using the command:
 
     git remote rm origin
 
+
+This app has been developed using private keys to access the database. To run this project locally, create your own mongo database and link to it using your own URI connection.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Credits
 
@@ -234,6 +360,11 @@ accessed by using JQuery to target the necessary html elements returned from a c
 
 The regular expressions used to remove some of the html elements in the parseContents function were copied from a post on Stack Overflow which addressed the same specific subject.
 
+<br>
+
+[Back to Top](#table-of-contents)
+
+---
 
 
 https://www.htmlgoodies.com/beyond/css/css-ref/building-responsive-web-page-headers.html
