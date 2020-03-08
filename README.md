@@ -61,7 +61,7 @@ the user to easily focus on the relevant information being presented. All user o
 
 ### Surface
 The cool color palette was chosen to be soothing on the eye and allow for extended viewing periods. Menu options and hover effects are modelled on the physical backlit buttons found
-on vintage hifi and professional audio gear. The background image echoes the same tones found in the styling color palette.
+on vintage hifi and professional audio gear. The background image shows a close-up shot of a vinyl record and echoes the same tones found in the styling color palette.
 
 <br>
 
@@ -89,17 +89,18 @@ on vintage hifi and professional audio gear. The background image echoes the sam
 
 
 **Edit Track Page** - by clicking the edit track button on the tracklist  users can update information relative to the selected track. Users can also delete an entry from this location. 
-Genre style list is generated dependant on genre selected.      
+Selection options for style are generated dependant on genre selected.      
 
 ![Edit Track](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/edit-track-page.png "Edit Track")      
 
 
-**Genre Filter** - presents the user with a choice of broad genre categories. Upon clicking a genre category option, the user is presented with a genre style menu relative to each genre.
+**Genre Filter** - presents the user with a choice of broad genre categories. Upon clicking a genre category option, the user is presented with a genre style menu relative to each genre. 
+The genre categories are the same genre categories found in [Discogs](https://www.discogs.com/). The selectable style categories are the top 10 most featured styles per genre in Discogs.
 
 ![Genre Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/genre-filter.png "Genre Filter")        
 ![Style Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/style-filter.png "Style Filter")        
 
-**Mood Filter** - allows users to filter songs based on their current mood.       
+**Mood Filter** - allows users to filter songs based on their current mood. The mood categories are based on acoustical analysis research conducted by Michael Nuzzolo. For more informration: [Music Mood Classification](https://sites.tufts.edu/eeseniordesignhandbook/2015/music-mood-classification/)       
 
 ![Mood Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/mood-filter.png "Mood Filter")        
 
@@ -140,6 +141,10 @@ The JQuery function that sets the genre style list can be found at file path:
 **More Countries** - would allow the user to select any country in the world.       
 
 **More Styles** - would allow theuser to customise the list of styles available relevant to their personal record collection.       
+
+**BPM Counter Button** - would allow the user to derive an approximate bpm when clicking a button repeatedly in time with a song.
+
+**User Account** - would allow the user private access to their collection.
 
 <br>
 
@@ -238,6 +243,10 @@ The user story scenarios were adressed effectively, where tracks can be added, f
 The main menu section gives the users clear options, which invites interactivity to filter track results. 
 The page sections will resize and reflow when the screen size is reduced or increased.      
 
+**Header Logo**
+1. Click on the header logo. Verify that you are returned to the welcome screen, no matter where you are on teh site.
+2. Hover over the logo with the mouse. Verify that a playful animation affects the logo. 
+
 **Main Menu:**
 1. Click on all menu items and verify that the page updates to show the relevant filtering options.     
 
@@ -332,6 +341,11 @@ Once cloned, you can remove all connection to the source repository using the co
 
     git remote rm origin
 
+before you can run the project locally, you will first need to install the packages for the environment to access.
+
+1. `pip3 install flask`
+2. `pip3 install flask-pymongo`
+3. `pip3 install dnspython`
 
 This app has been developed using private keys to access the database. To run this project locally, create your own mongo database and link to it using your own URI connection.
 
@@ -343,37 +357,16 @@ This app has been developed using private keys to access the database. To run th
 
 ## Credits
 
-### Map
-The interactive map used in this site is supplied by Google, accessed by interfacing with the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial).
-
-### Content
-The text content of the "Overview" paragraph is taken from the wikipedia page for that location, 
-accessed by requesting the summary content using the [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/#/Page%20content/get_page_summary__title_) for the selected location.      
-
-The text content of the "Show history" paragraphs is taken from the wikipedia page for that location,
-accessed by using JQuery to target the necessary html elements returned from a call to the [English Wikipedia API](https://en.wikipedia.org/w/api.php) for the selected location.     
+### Media
+The background image used throughout the site was obtained from wallpaperflare.
 
 ### Acknowledgements
+Special thanks to my project mentor, Aaron. His critical eye and accomodating manner have steered me clear of many rocks. Cheers, man!       
 
-The regular expressions used to remove some of the html elements in the parseContents function were copied from a post on Stack Overflow which addressed the same specific subject.
+Thanks to all the music makers everywhere, past and present, without which this project idea would never have come to light.        
 
 <br>
 
 [Back to Top](#table-of-contents)
 
 ---
-
-
-https://www.htmlgoodies.com/beyond/css/css-ref/building-responsive-web-page-headers.html
-
-https://www.w3schools.com/howto/howto_css_responsive_form.asp
-
-https://sites.tufts.edu/eeseniordesignhandbook/2015/music-mood-classification/
-
-https://www.color-hex.com/
-
-https://stackoverflow.com/questions/27416296/how-to-push-a-csv-data-to-mongodb-using-python
-
-https://stackoverflow.com/questions/19898283/folder-and-files-upload-with-flask
-
-https://www.quora.com/How-can-I-import-a-CSV-file-data-to-MongoDB-using-Python-Flask?share=1
