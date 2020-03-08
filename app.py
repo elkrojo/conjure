@@ -25,16 +25,6 @@ def nothing_here():
     return render_template("nothing_here.html")
 
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
-
-
-@app.route('/contact')
-def contact():
-    return render_template("contact.html")
-
-
 @app.route('/get_artists')
 def get_artists():
     artists = mongo.db.artists.find().sort("artist_name", 1)
@@ -68,6 +58,7 @@ def artist_page(artist_id, artist_name):
     tracks = mongo.db.tracks.find({"artist_name": artist_name}).sort("track_name", 1)
     artist = mongo.db.artists.find_one({'_id': ObjectId(artist_id)})
 
+    # Use image path if one exists and use placeholder image otherwise
     if "image_path" in artist.keys():
         artist_image = artist["image_path"]
     else:
@@ -239,6 +230,8 @@ def insert_track():
     unique_artists = artists.distinct("artist_name")
     tracks = mongo.db.tracks
     dict_form = request.form.to_dict()
+
+    # Convert numerical entries to integers before inserting document
     dict_form["year"] = int(dict_form["year"])
     dict_form["bpm"] = int(dict_form["bpm"])
     dict_form["minutes"] = int(dict_form["minutes"])
@@ -247,6 +240,7 @@ def insert_track():
     _trkid = tracks.insert_one(dict_form_lower)
     track = tracks.find_one({'_id': ObjectId(_trkid.inserted_id)})
 
+    # Add artist to artist list if not already present
     _artid = None
     if track['artist_name'] not in unique_artists:
         _artid = artists.insert_one({'artist_name': track['artist_name']})
@@ -284,6 +278,7 @@ def gen_playlist():
 
 @app.route('/your_playlist/<genre>/<style>/<mood>/<low_year>/<upr_year>/<low_bpm>/<upr_bpm>/<track_limit>')
 def your_playlist(genre, style, mood, low_year, upr_year, low_bpm, upr_bpm, track_limit):
+    # Create a group count for checking if results are returned later
     tracks_count = mongo.db.tracks.aggregate([
                                        {"$match": {"genre_name": genre,
                                                    "genre_style": style,
@@ -296,6 +291,7 @@ def your_playlist(genre, style, mood, low_year, upr_year, low_bpm, upr_bpm, trac
                                        {"$group": {"_id": None, "count": {"$sum": 1}}}
                                        ])
 
+    # Filter the tracks based on selected parameters and sample using track limit number
     tracks = mongo.db.tracks.aggregate([
                                        {"$match": {"genre_name": genre,
                                                    "genre_style": style,
