@@ -106,8 +106,7 @@ Genre style list is generated dependant on genre selected.
 
 **BPM & Year Filters** - give users the option of selecting a range within which to return results based on a lower and upper limit.       
 
-![BPM Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/bpm-filter.png "BPM Filter")        
-![Year Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/year-filter.png "Year Filter")
+![BPM Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/bpm-filter.png "BPM Filter") ![Year Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/year-filter.png "Year Filter")
 
 **Country Filter** - offers the user a way of narrowing their track selection, based on a particular location.      
 
