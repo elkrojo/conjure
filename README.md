@@ -57,7 +57,8 @@ The end point of every search is a track table displaying tracks which match the
 the user to easily focus on the relevant information being presented. All user options are clearly visable.
 
 ### Skeleton
-[Wireframe](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/PiT_wireframe.jpeg)      
+[Desktop Wireframe](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/conjure-desktop.jpeg)      
+[Mobile Wireframe](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/conjure-mobile.jpeg)
 
 ### Surface
 The cool color palette was chosen to be soothing on the eye and allow for extended viewing periods. Menu options and hover effects are modelled on the physical backlit buttons found
