@@ -28,9 +28,9 @@ Our search engine will do all the hard work, leaving you free to simply *enjoy t
 ---
 
 ## Demo
-Clicking on the screen below will bring you to a live demo. Right click and select "Open link in new tab" to open the demo in a new browser tab.      
+Clicking on the image below will bring you to a live demo. Right click and select "Open link in new tab" to open the demo in a new browser tab.      
 
-[![Main](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/main_screen.png)](https://elkrojo.github.io/place-in-time/)
+[![Main](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/demo-image.png)](https://conjure-music.herokuapp.com/)
 
 <br>
 
@@ -45,7 +45,6 @@ In doing so, I will be able to filter songs using many available categories or g
 As a DJ, I would like to create a digital database representing my record collection. 
 In doing so, I will be able to quickly find tracks that fit a category of my choosing, and even see which tracks would work well together by generating a playlist.
 
-![UX Stories](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/ux-stroy.gif "UX Stories")
 
 ### Strategy
 The design is intuitive and easy to grasp. The options are clearly laid out, and tracklist results are easily readable.
