@@ -75,54 +75,53 @@ on vintage hifi and professional audio gear. The background image echoes the sam
 
 **Main Menu** - presents users with the main filtering categories, as well as the Add Track & Conjure Playlist options.     
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/modal_hlite.png "Modal")
+![Main Menu](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/main-menu.png "Main Menu")     
 
 
 **Artists List** - shows users the artists who curently have tracks in the database. This list can be filtered alphabetically using the index located above the artist tiles.      
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/gmap_hlite.png "Map")
+![Artists List](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/artists-list.png "Artists List")        
 
 
 **Artist Page** - presents users with an image banner for the selected artist, beneath which can be found a tracklist displaying all the tracks attributed to the currently selected artist in the database.        
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/gmap_markers_hlite.png "Map Markers")
+![Artist Page](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/artist-page.png "Artist Page")       
 
 
 **Edit Track Page** - by clicking the edit track button on the tracklist  users can update information relative to the selected track. Users can also delete an entry from this location. 
 Genre style list is generated dependant on genre selected.      
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/accordion_cl_hlite.png "Accordion Closed")
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/accordion_op_hlite.png "Accordion Open")      
+![Edit Track](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/edit-track-page.png "Edit Track")      
 
 
 **Genre Filter** - presents the user with a choice of broad genre categories. Upon clicking a genre category option, the user is presented with a genre style menu relative to each genre.
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
-
+![Genre Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/genre-filter.png "Genre Filter")        
+![Style Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/style-filter.png "Style Filter")        
 
 **Mood Filter** - allows users to filter songs based on their current mood.       
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
+![Mood Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/mood-filter.png "Mood Filter")        
 
 
 **BPM & Year Filters** - give users the option of selecting a range within which to return results based on a lower and upper limit.       
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
-
+![BPM Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/bpm-filter.png "BPM Filter")        
+![Year Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/year-filter.png "Year Filter")
 
 **Country Filter** - offers the user a way of narrowing their track selection, based on a particular location.      
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
+![Country Filter](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/country-filter.png "Country Filter")        
 
 
 **Add Track** - this is where a new track can be added to the database. Genre style list is generated dependant on genre selected.      
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
+![Add Track](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/add-track.png "Add Track")        
 
 
 **Conjure Playlist** - this feature uses a combination of filtering options, and returns a selection of songs that match the request.     
 
-![Modal](https://raw.githubusercontent.com/elkrojo/place-in-time/master/assets/images/footer_hlite.png "Footer")        
+![Conjure Playlist](https://raw.githubusercontent.com/elkrojo/conjure/master/static/images/docu/conjure-playlist.png "Conjure Playlist")        
 
 
 The JQuery function that sets the genre style list can be found at file path:
